@@ -1,0 +1,106 @@
+%!TEX root = ../thesis.tex
+
+\chapter{Derivation of the Peak Spreads in Storage Rings}
+\label{apdx:derivations}
+
+The ratio of the velocity of relativistic ions to the speed of light in vacuum is defined as:
+\begin{equation}\label{eq:apdx6:beta}
+\beta = \frac{v}{c},
+\end{equation}
+where $v$ is the velocity of the ions, and $c$ is the speed of light.
+
+The Lorentz factor, $\gamma$, is given by:
+\begin{equation}\label{eq:apdx6:gamma}
+\gamma = \frac{1}{\sqrt{1 - \beta^2}}.
+\end{equation}
+
+The total energy of relativistic particles, $U$, is given as:
+\begin{equation}\label{eq:apdx6:U}
+U = \gamma mc^2,
+\end{equation}
+where $m$ is the rest mass of the particle.
+
+The momentum, $p$, of the particle is expressed as:
+\begin{equation}\label{eq:apdx6:p}
+p = \beta \gamma mc = \beta \frac{U}{c}.
+\end{equation}
+
+The kinetic energy, $T$, is calculated from:
+\begin{equation}\label{eq:apdx6:T}
+T = (\gamma - 1)mc^2.
+\end{equation}
+
+An alternative expression for the total energy in terms of rest mass and relativistic momentum is:
+\begin{equation}\label{eq:apdx6:U_alternate}
+U = \sqrt{p^2 + m^2}.
+\end{equation}
+
+Differentiating $U^2 = p^2c^2 + m^2c^4$ with respect to $p$ gives:
+\begin{equation}\label{eq:apdx6:Udif}
+2UdU = 2pc^2dp,
+\end{equation}
+leading to the relation between differential changes in total energy and momentum as:
+\begin{equation}\label{eq:apdx6:dUU}
+  \frac{dU}{U} = \left(\frac{p}{U}\right)^2 \frac{dp}{p} = \beta^2 \frac{dp}{p}.
+\end{equation}
+
+The relation between a differential change in $\beta$ and $\gamma$ is:
+\begin{equation}\label{eq:apdx6:dgamma}
+d\gamma = -\frac{1}{2}\left(1 - \beta^2\right)^{-\frac{3}{2}}(-2\beta)d\beta = \beta\gamma^3 d\beta,
+\end{equation}
+therefore,
+\begin{equation}\label{eq:apdx6:dbeta1}
+\frac{d\beta}{\beta} = \frac{d\gamma}{\gamma} \left(\frac{1}{\beta\gamma}\right)^2,
+\end{equation}
+
+and, since \(\frac{d\gamma}{\gamma} = \frac{dU}{U} = \beta^2 \frac{dp}{p}\), we have:
+\begin{equation}\label{eq:apdx6:dbeta}
+\frac{d\beta}{\beta} = \frac{d\gamma}{\gamma} \left(\frac{1}{\beta\gamma}\right)^2 \implies \frac{d\beta}{\beta} = \frac{1}{\gamma^2}\frac{dp}{p},
+\end{equation}
+
+or equivalently:
+\begin{equation}\label{eq:apdx6:sigma_v}
+\frac{\sigma_v}{v} = \frac{1}{\gamma^2}\frac{\sigma_{p}}{p}.
+\end{equation}
+
+The differential time spread can be expressed in relation to the differential momentum as:
+\begin{equation}\label{eq:apdx6:sigma_T}
+\frac{\sigma_T}{T} = \frac{\sigma_f}{f} = \left(1 - \frac{\gamma^2}{\gamma_t^2}\right)\frac{\sigma_v}{v} = \left(\frac{1}{\gamma^2} - \frac{1}{\gamma_t^2}\right)\gamma^2\frac{\sigma_v}{v},
+\end{equation}
+ which, using the equation referenced, relates to the momentum spread as:
+\begin{equation}\label{eq:apdx6:sigma_T_sigma_p}
+\frac{\sigma_T}{T} = \left(\frac{1}{\gamma^2} - \frac{1}{\gamma_t^2}\right)\frac{\sigma_{p}}{p}.
+\end{equation}
+
+Therefore, the time spread of the peaks that appears in the isochronicity curve is given by:
+\begin{equation}\label{eq:apdx6:sigma_T_final}
+\sigma_T = \sqrt{\left(\left(1 - \left(\frac{L}{T \cdot c }\right)^2 - \frac{1}{\gamma_t^2}\right)\cdot\left(\frac{\sigma_p}{p}\right)\cdot T\right)^2 + \sigma_{sys}^2}.
+\end{equation}
+Here, \(\sigma_T\) represents the time spread, \(\sigma_p\) is the momentum spread, and other symbols have their previously defined meanings. Also we have substituted the velocity termn $v$ inside the $\gamma$ factor as $v = L / T$ where $L$ is the average path taken by the particles in every turn.
+$\sigma_T$ is the measured time spread which depends on the dynamic term plus the systematics.
+\begin{equation}\label{eq:apdx6:sigma_T_final2}
+\sigma_T^{\text{exp}} = \sqrt{\sigma_\text{set}^{2} + \sigma_{\text{sys}}^2}.
+\end{equation}
+
+Experimentally, we can relate the frequency spread ($\sigma_{f}$) to the spread in time ($\sigma_{T}$) by:
+\begin{equation}\label{eq:apdx6:sigma_T_o}
+\sigma_T = T \cdot \frac{\sigma_{f}}{f}.
+\end{equation}
+By differentiating \cref*{eq:apdx6:sigma_T_o} we obtain the experimental uncertainty in the time spread related to the measured quantities:
+\begin{align}
+  \Delta \sigma_T &= \left|\frac{\partial \sigma_T}{\partial \sigma_f}\right| \Delta \sigma_f + \left|\frac{\partial \sigma_T}{\partial T}\right| \Delta T + \left|\frac{\partial \sigma_T}{\partial f}\right| \Delta f \nonumber \\
+  &= \frac{T}{f}\Delta \sigma_f + \frac{\sigma_f}{f}\Delta T + \frac{\sigma_f T}{f^2}\Delta f \nonumber \\
+  &= \frac{1}{f^2}\Delta \sigma_f + 2\frac{\sigma_f}{f^3}\Delta f.
+\end{align}
+
+While, since $T= \frac{1}{f}$, its uncertainty $\Delta T$ is given by:
+\begin{equation}
+  \Delta T = \left|\frac{\partial T}{\partial f}\right| \Delta f = \frac{1}{f^2}\Delta f.
+\end{equation}
+
+Finally, taking into account the harmonics yields:
+\begin{align}
+  \Delta \sigma_T &= \frac{h}{f^3}\left(\Delta \sigma_f f + 2\sigma_f\Delta f\right),\\
+  \Delta T &= \frac{h}{f^2}\Delta f.
+\end{align}
+

@@ -1,0 +1,73 @@
+\usepackage{csquotes}
+\usepackage[
+  sorting=none,
+  %maxnames=1,
+  date=year,
+  doi=true,
+  url=true,
+  eprint=true,
+  isbn=false,
+  style=numeric-comp
+]{biblatex}
+\addbibresource{bib/bibliography.bib}
+\addbibresource{bib/2p_exp.bib}
+\addbibresource{bib/2p_paper.bib}
+\addbibresource{bib/2p_th.bib}
+\addbibresource{bib/datasets.bib}
+\addbibresource{bib/intro.bib}
+\addbibresource{bib/chap2.bib}
+\addbibresource{bib/chap1.bib}
+\addbibresource{bib/cmm.bib}
+\addbibresource{bib/conclusions.bib}
+% remove In: and full stop at the end
+\renewbibmacro{in:}{}
+\renewcommand{\finentrypunct}{}
+
+% remove title and issue number
+\AtEveryBibitem{%
+  \clearfield{title}
+  \clearfield{issue}
+}
+
+% add link to doi.org
+\DeclareFieldFormat{doi}{%
+   \mkbibacro{DOI}\addcolon\space%
+   \ifhyperref{\href{https://doi.org/#1}{\nolinkurl{#1}}}{\nolinkurl{#1}}
+ }
+
+% add collaboration, if there
+\DeclareSourcemap{%
+ \maps[datatype=bibtex, overwrite=true]{%
+  \map{%
+    \step[fieldsource=Collaboration, final=true]
+    \step[fieldset=usera, origfieldval, final=true]
+  }
+ }
+}
+\renewbibmacro*{author}{%
+  \iffieldundef{usera}{%
+    \printnames{author}%
+  }{%
+    \printnames{author} (\textsc{\printfield{usera}} Collaboration)%
+  }%
+}%
+
+% the following fix makes biblatex use UrlFont also for primaryClass field
+\makeatletter
+\DeclareFieldFormat{eprint:arxiv}{%
+  \textsc{arXiv}\addcolon\space%
+  \ifhyperref{%
+    \href{https://arxiv.org/\abx@arxivpath/#1}{%
+      \nolinkurl{#1}%
+      \iffieldundef{eprintclass}
+        {}
+        {\addspace\UrlFont\mkbibbrackets{\thefield{eprintclass}}}
+    }
+  }{%
+    \nolinkurl{#1}%
+    \iffieldundef{eprintclass}
+      {}
+      {\addspace\mkbibbrackets{\thefield{eprintclass}}}
+  }
+}
+\makeatother

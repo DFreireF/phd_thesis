@@ -1,0 +1,314 @@
+%! TEX root = ../thesis.tex
+
+\documentclass[
+  draft,%
+  twoside,
+  12pt,
+  a4paper,
+  openright,
+  physicsastro,
+  english,
+  marginleft=1in,
+  marginright=1in,
+  margintop=1in,
+  marginbottom=1in,
+  bindingoffset=6mm
+]{hdphdthesis}
+\usepackage[english]{babel}
+\usepackage{afterpage}
+\usepackage{tikz} %For the boxes
+\usepackage{varwidth}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{lipsum}
+\usepackage{lastpage}
+\usepackage{epigraph}
+\setlength\epigraphwidth{.6\textwidth}
+\setlength\epigraphrule{0pt}
+% graphics
+\usepackage{GoudyIn}
+\usepackage{lettrine}
+\usepackage[compat=1.1.0]{tikz-feynman} % for feynman diagrams
+\usepackage[object=vectorian]{pgfornament}%ornaments
+\usepackage{subfig}
+\usepackage{graphicx}
+  \graphicspath{{img/}}
+\usepackage{xcolor}
+\usepackage{color}
+\definecolor{darkred}{RGB}{139,0,0}
+\definecolor{darkdarkred}{RGB}{102,0,0}
+
+\usepackage{colortbl}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{bm}
+%Verbatim
+\usepackage{fancyvrb}
+\usepackage{tcolorbox}
+\usepackage{minted}
+\tcbuselibrary{skins, breakable, minted, xparse}
+\newtcolorbox{pythoncode}[1][]{
+    enhanced,
+    breakable,
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    boxrule=0.5mm,
+    arc=2mm,
+    top=3mm,
+    bottom=3mm,
+    left=5mm,
+    right=5mm,
+    title=#1,
+    fonttitle=\bfseries
+}
+
+\definecolor{bg}{gray}{0.95} % Background color for the code area
+
+\DeclareTCBListing{mintedbox}{O{}m!O{}}{
+  breakable=false,
+  listing engine=minted,
+  listing only,
+  minted language=#2,
+  minted style=default,
+  minted options={
+    linenos,
+    gobble=0,
+    breaklines=true,
+    breakafter=,,
+    fontsize=\small,
+    numbersep=8pt,
+    #1},
+  boxsep=0pt,
+  left skip=0pt,
+  right skip=0pt,
+  left=25pt,
+  right=0pt,
+  top=3pt,
+  bottom=3pt,
+  arc=5pt,
+  leftrule=1pt,
+  rightrule=1pt,
+  bottomrule=2pt,
+  toprule=2pt,
+  colback=bg,
+  colframe=orange!70,
+  enhanced,
+  overlay={
+    \begin{tcbclipinterior}
+    \fill[orange!20!white] (frame.south west) rectangle ([xshift=20pt]frame.north west);
+    \end{tcbclipinterior}
+  },
+label=#3}
+% tables
+%--------------- Table and figure captions ----------------
+%\usepackage[hyphens]{url}
+\captionsetup[figure]{labelfont={bf, it},name={Figure},labelsep=period,singlelinecheck=true}
+\captionsetup[table]{labelfont={bf, it},name={Table},labelsep=period,singlelinecheck=true}
+\usepackage[%
+hypertexnames=false,
+pdfauthor={David Freire Fernández},
+pdftitle={First nuclear two-photon decay measurements at storage rings},
+pdfkeywords={physics, two-photon, storage rings},
+pdfproducer={XeLaTeX with hyperref},
+pdfcreator={XeLaTeX}
+]{hyperref}
+%\hypersetup{
+%    pdfpagelayout={TwoPageRight},
+%}
+\usepackage{pdfpages}
+\usepackage{xurl} 
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{threeparttable}
+% bibliography, references
+\input{tex/biblatex}
+\setcounter{biburllcpenalty}{9000}
+\setcounter{biburlucpenalty}{9000}
+\setcounter{biburlnumpenalty}{9000}
+%\def\UrlBreaks{\do\/\do-}
+\usetikzlibrary{calc}
+\newcommand{\myendchapter}{%
+    \begin{tikzpicture}[baseline=-0.5ex]
+        % Draw the left part of the shape
+        \filldraw[fill=black!50!red] (0,0) -- (0.5,1.5) -- (1,1.5) -- (1.5,0) -- cycle;
+        % Draw the right part of the shape
+        \filldraw[fill=black!50!red] (1.5,0) -- (2,1.5) -- (2.5,1.5) -- (3,0) -- cycle;
+        % Draw the middle part of the shape
+        \filldraw[fill=white] (1,1.5) -- (1.5,0) -- (2,1.5) -- cycle;
+        % Draw the center circle
+        \draw[fill=black!50!red] (1.5,0.75) circle (0.3cm);
+    \end{tikzpicture}%
+}
+\newcommand{\mybox}[4][\textwidth-\pgfkeysvalueof{/pgf/inner xsep}-2mm]{
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\node[line width=.5mm, rounded corners, draw=#2, inner ysep=10pt, text width=#1, outer sep=0] (one) {\vspace*{15pt}\\\begin{varwidth}{\textwidth}#4\end{varwidth}};
+\node[text=white,anchor=north east,align=center, minimum height=20pt] (two) at (one.north east) {#3 \hspace*{.5mm}};
+\path[fill=#2]
+    (one.north west|-two.west) --
+    ($(two.west)+(-1.5cm,0)$)
+    to[out=0,in=180] (two.south west) --
+    (two.south east) [rounded corners] --
+    (one.north east) -- 
+    (one.north west) [sharp corners] -- cycle;
+\node[text=white,anchor=north east,align=center, minimum height=20pt, text height=2ex] (three) at (one.north east) {#3 \hspace*{.5mm}};
+\end{tikzpicture}
+\end{figure}
+}
+\newcommand{\chapterendfigure}[1]{%
+    %\clearpage
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.1\textwidth]{#1} % Change width if needed
+    \end{figure}
+}
+
+\newcommand{\floralheart}{%
+    \par\nobreak
+    \begin{center}
+    \begin{tikzpicture}[scale=0.5]
+    \draw[fill=red] (0,0) .. controls +(0,2) and +(2,0) .. (2,2) .. controls +(2,0) and +(0,2) .. (4,0) .. controls +(0,-2) and +(-2,0) .. (2,-2) .. controls +(-2,0) and +(0,-2) .. (0,0);
+    \draw[fill=green!60!black] (2,0) circle (0.75);
+    \foreach \i in {0,60,...,300} {
+        \draw[fill=green!60!black] (2,0) -- ++(\i:0.75) circle (0.25);
+    }
+    \draw[fill=green!60!black] (2,0) circle (0.1);
+    \end{tikzpicture}
+    \end{center}
+    \vskip 20pt
+}
+\usepackage{marginnote}\renewcommand*{\marginfont}{\scshape}
+\newcommand{\blocktitle}[1]{\leavevmode\marginnote{#1}\ignorespaces}
+
+\newcommand{\myboxfig}[4][\textwidth-\pgfkeysvalueof{/pgf/inner xsep}-2mm]{
+    \begin{figure}[hbt]
+        \centering
+        \begin{tikzpicture}
+            \node[line width=.5mm, rounded corners, draw=#2, inner ysep=10pt, text width=#1, outer sep=0] (one) {\vspace*{15pt}\\\begin{varwidth}{\textwidth}#4\end{varwidth}};
+            \node[text=white,anchor=north east,align=center, minimum height=20pt] (two) at (one.north east) {#3 \hspace*{.5mm}};
+            \path[fill=#2]
+                (one.north west|-two.west) --
+                ($(two.west)+(-1.5cm,0)$)
+                to[out=0,in=180] (two.south west) --
+                (two.south east) [rounded corners] --
+                (one.north east) -- 
+                (one.north west) [sharp corners] -- cycle;
+            \node[text=white,anchor=north east,align=center, minimum height=20pt, text height=2ex] (three) at (one.north east) {#3 \hspace*{.5mm}};
+        \end{tikzpicture}
+    \end{figure}
+}
+
+\newcommand{\myboxfigdoublecolumn}[4][\textwidth-\pgfkeysvalueof{/pgf/inner xsep}-2mm]{
+    \centering
+    \begin{tikzpicture}
+        \node[line width=.5mm, rounded corners, draw=#2, inner ysep=10pt, text width=#1, outer sep=0] (one) {\vspace*{15pt}\\\begin{varwidth}{\textwidth}#4\end{varwidth}};
+        \node[text=white,anchor=north east,align=center, minimum height=20pt] (two) at (one.north east) {#3 \hspace*{.5mm}};
+        \path[fill=#2]
+            (one.north west|-two.west) --
+            ($(two.west)+(-1.5cm,0)$)
+            to[out=0,in=180] (two.south west) --
+            (two.south east) [rounded corners] --
+            (one.north east) -- 
+            (one.north west) [sharp corners] -- cycle;
+        \node[text=white,anchor=north east,align=center, minimum height=20pt, text height=2ex] (three) at (one.north east) {#3 \hspace*{.5mm}};
+    \end{tikzpicture}
+}
+
+%\usepackage{fontspec} % This requires XeLaTeX
+%\setmainfont{Times New Roman}
+%fonts
+\usepackage[lining]{ebgaramond}
+%------------- Setting the license of thesis --------------
+\usepackage[
+    type={CC},
+    modifier={by-nc-nd},
+    version={3.0},
+]{doclicense}
+
+%cleverref
+\usepackage[capitalise]{cleveref}
+  \crefformat{chapter}{#2Chap.~#1#3}
+  \crefformat{appendix}{#2App.~#1#3}
+  \crefformat{section}{#2§#1#3}
+  \crefformat{subsection}{#2§#1#3}
+  \crefformat{subsubsubsection}{#2subsubsection~#1#3}  
+  \crefformat{equation}{#2Eq.~(#1)#3}
+  \crefformat{figure}{#2Fig.~#1#3}
+  \crefformat{table}{#2Tab.~#1#3}
+  \crefformat{minted}{#2Minted.~#1#3}
+
+  \Crefformat{table}{#2Table~#1#3}
+  \Crefformat{figure}{#2Figure~#1#3}
+  \Crefformat{equation}{#2Equation~(#1)#3}
+  \Crefformat{chapter}{#2Chapter~#1#3}
+  \Crefformat{appendix}{#2Appendix~#1#3}
+  \Crefformat{section}{#2Section~§#1#3}
+
+
+%macros
+\input{tex/macros}
+%This is for the double lines in the chapter title
+\usepackage{xpatch}
+\xpretocmd\headrule{\color{darkdarkred}}{}{\PatchFailed}
+
+\usepackage{microtype}
+
+% diff:
+\newcommand{\diff}[2]{\frac{d #1}{d #2}}
+%\renewcommand{\thechapter}{\Roman{chapter}}
+% Fancy chapter title format
+\titleformat{\chapter}[display]
+  {\bfseries\huge\color{black}} % Chapter title font settings
+  {\centering\Large\color{darkred}\pgfornament[width=1.6cm]{72}\color{black}\chaptertitlename~\thechapter~\color{darkred}\pgfornament[width=1.6cm]{73}} % Chapter prefix (e.g., "Chapter 1") settings
+  {3ex} % Space between chapter prefix and title
+  {\color{darkred}\titlerule\titlerule\titlerule\color{black}\vspace{1ex}\centering\itshape} % Title formatting and rule
+  [\vspace{1ex}\color{darkred}\titlerule\titlerule\titlerule] % Rule after the title
+
+% Section for the CV
+\usepackage{orcidlink}
+%\usepackage{fontawesome}
+% Environment setup for rSection
+\newsavebox{\titlebox}
+\newlength{\sectionlineskip}
+\newlength{\sectionskip}
+\setlength{\sectionlineskip}{2pt} % Adjust the vertical space after the line
+\setlength{\sectionskip}{10pt} % Adjust the vertical space before the section title
+\usetikzlibrary{fadings}
+\tikzfading[name=fade out in middle,
+  left color=transparent!0, right color=transparent!0,
+  middle color=transparent!100]
+\newenvironment{rSection}[1]{ % 1 input argument - section name
+  \vspace{\sectionskip}
+  \savebox{\titlebox}{\bfseries\MakeUppercase{#1}} % Save the title in the box
+  \settowidth{\titlewidth}{\usebox{\titlebox}} % Measure the width of the title
+  \pgfmathsetlengthmacro{\lineend}{\linewidth-\titlewidth-0.em} % Calculate the remaining width
+  
+  \usebox{\titlebox} % Print the section title
+  \vspace{\sectionlineskip}
+  
+  % Fading horizontal line under the section title
+  \begin{tikzpicture}
+    \begin{scope}
+      \clip (0,-0.1) rectangle (\lineend,0.1);
+      \shade[left color=black, right color=white] (0,0) rectangle (\lineend,0.1);
+    \end{scope}
+  \end{tikzpicture}
+  
+  \begin{list}{}{ % List for each individual item in the section
+    \setlength{\leftmargin}{1.5em} % Margin within the section
+  }
+  \item[]
+}{
+  \end{list}
+}
+\usepackage{enumitem}
+\setlist[itemize,1]{label={\bf \faAngleRight}, leftmargin=3em}
+\setlist[itemize,2]{label={\bf \faAngleRight}, nosep, leftmargin=1.5em}
+\usepackage{fontawesome5}

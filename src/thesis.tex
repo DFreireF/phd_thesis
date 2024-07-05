@@ -1,0 +1,100 @@
+%! TEX program = xelatex
+
+\input{tex/preamble}
+
+\includeonly{
+  chap/intro,
+  chap/chap1,
+  %chap/chap2,
+  %chap/chap3,
+  %chap/conclusions,
+  %%chap/appendix,
+  %chap/appendix2,
+  %chap/appendix3,
+  %chap/appendix6,
+  %chap/appendix7,
+  %chap/publications,
+  %chap/shortcv,
+  %chap/short_cv2,
+  chap/acknowledgements,
+  %chap/abstract,
+  %chap/abstrakt
+}
+
+%----------------- Start of the document ------------------
+\begin{document}
+  \pagestyle{empty}
+  \input{chap/titlepage}
+  \cleardoublepage{}
+
+  \pagenumbering{roman}
+
+
+  %----------------------- Abstracts ------------------------
+  %\insertcopyrightnotice  
+  \newgeometry{margin=2.cm}
+  \selectlanguage{english}
+  %\input{chap/abstract.tex}
+  %\cleardoublepage{}
+  \input{chap/abstrakt.tex}
+  \restoregeometry{}
+  \include{chap/acknowledgements}
+  \restoregeometry{}
+
+  %------------------- Table of contents --------------------
+  \cleardoublepage
+  \phantomsection
+  \setcounter{tocdepth}{2} % Include subsubsections in the table of contents
+  \setcounter{secnumdepth}{4} % Number subsubsections
+  \addcontentsline{toc}{chapter}{\contentsname}
+  
+  %\begin{multicols}{2} % Start a two-column layout
+    \tableofcontents
+  %\end{multicols} % End the two-column layout
+  
+  \newpage
+  %\cleardoublepage\phantomsection\addcontentsline{lof}{chapter}{\listfigurename}\listoffigures\newpage
+  %\cleardoublepage\phantomsection\addcontentsline{lot}{chapter}{\listtablename}\listoftables\newpage
+
+  %--------------------- Main contents ----------------------
+  \cleardoublepage
+  \pagenumbering{arabic}
+  \pagestyle{followingpage}
+
+  \include{chap/intro}
+  \include{chap/chap1}
+  \include{chap/chap2}
+  \include{chap/chap3}
+  \include{chap/conclusions}
+  %\include{chap/acknowledgements}
+  \cleardoublepage{}
+  \titleformat{\chapter}[hang]{\huge\slshape}{\thechapter.}{20pt}{\Huge\slshape}
+  \appendix
+  %\include{chap/appendix}
+  \include{chap/appendix6}
+  \include{chap/appendix2}
+  \include{chap/appendix3}
+  \include{chap/appendix7}
+  \include{chap/short_cv2}
+  %\includepdf[pages={1}]{chap/short_cv.pdf}
+  \include{chap/publications}
+  %---------------------- Bibliography ----------------------
+  \cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\bibname}
+  %\newgeometry{top=32mm, bottom=27mm, left=40mm,right=15mm}
+  \sloppy
+  \printbibliography
+  \begin{center}
+    \vspace*{2cm}
+    \pgfornament[width=5.8cm, color=darkred]{71}%
+    \hfill
+    \pgfornament[width=0.8cm, color=darkred]{5}%
+    \hfill
+    \pgfornament[width=5.8cm, color=darkred]{71}
+    \vspace*{2cm} % Adjust vertical space after the ornaments as needed
+\end{center}
+  %\bibliography{bibliography}
+  %\bibliographystyle{unsrt}
+
+  %-------------------- Acknowledgements --------------------
+
+\end{document}

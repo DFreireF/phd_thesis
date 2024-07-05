@@ -1,0 +1,15 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is '.auxtex/thesis.blg'
+[39] biber:340> INFO - === mar mar 19, 2024, 08:40:43
+[48] Biber.pm:419> INFO - Reading '.auxtex/thesis.bcf'
+[82] Biber.pm:979> INFO - Found 1 citekeys in bib section 0
+[91] Biber.pm:4419> INFO - Processing section 0
+[97] Biber.pm:4610> INFO - Looking for bibtex file 'bib/bibliography.bib' for section 0
+[97] bibtex.pm:1713> INFO - LaTeX decoding ...
+[99] bibtex.pm:1519> INFO - Found BibTeX data source 'bib/bibliography.bib'
+[123] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[123] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[123] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[123] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[126] bbl.pm:660> INFO - Writing '.auxtex/thesis.bbl' with encoding 'UTF-8'
+[126] bbl.pm:763> INFO - Output to .auxtex/thesis.bbl

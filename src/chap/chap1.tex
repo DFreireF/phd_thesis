@@ -1,0 +1,190 @@
+%!TEX root = ../thesis.tex
+
+\chapter{The Nuclear Two-Photon Decay}\label{chap:100years}
+\lettrine{T}{he} nuclear two-photon decay or double-gamma ($2\gamma$) involves the decay of an excited nucleus through the simultaneous emission of two photons via the virtual excitation of intermediate states. The partial half-life of this decay gives access to observables such as the (transitional) electromagnetic polarizability and susceptibility, which are important ingredients in constraining parameters of the nuclear equation of state\,\cite{EOS}, determining the neutron skin thickness\,\cite{NeutronSkin}, and constraining the nuclear matrix elements of the neutrinoless double-beta decay\,\cite{ROMEO}.
+\newpar
+In \cref{sec:chap1:theory}, I present an insightful overview of the theory describing this decay. \Cref{sec:chap1:previousexperiments} contains a comprehensive bibliographic recompilation of past experiments exploring the nuclear two-photon decay. Lastly, \cref{sec:chap1:twophotonstorage} introduces a pioneering technique for investigating the two-photon decay in \(0^{+} \rightarrow 0^{+}\) transitions.
+
+\section{Theoretical framework}\label{sec:chap1:theory}
+The (nuclear) two-photon\footnote{Originally termed by M.~Göpert-Mayer as \textsc{zwei Lichtquanten} or \textsc{zwei Quantensprünge}.} decay is a second-order quantum-mechanical process initially formulated for the case of atomic transitions by M.~G\"{o}ppert-Mayer\,\cite{Goeppert-1929, Goeppert-Mayer-1931}. Later, it was applied to nuclear transitions by J.~R.~Oppenheimer and J.~S.~Schwinger~\cite{PhysRev.56.1066}, D.~P.~Grechukhin~\cite{GRECHUKHIN1963273ussr,GRECHUKHIN1962,Grechukhin-1963, GRECHUKHIN1965} and J.~Eichler~\cite{Eichler1959,Eichler-1974}, further refined by J.~L.~Friar and M.~Rosen\,\cite{Friar-1974, Friar-1975} and generalized by J.~Kramp {\it et al.}\,\cite{Kramp-1987} by considering not only dipole transitions but also transitions with higher multipolarities.
+\newpar
+For theoretically studying electromagnetic transitions in nuclei, we have to model the interaction between the nucleus and the electromagnetic (\textsc{EM}) field.
+This interaction can be described by the product between the vector potential created by free photons, represented by $\vec{A}$ or its operator form $A^\mu(x)$, and the nuclear current, $\vec{j}$ or $j_\mu(x)$ in operator notation, i.e. $\vec{A}\cdot \vec{j}$.
+At first-order perturbation theory on $\vec{A}\cdot \vec{j}$, we obtain the (single) photon decay probability~\cite{osti_4785718}. 
+However, for describing the $2\gamma$ decay we need to extend our calculations to second-order perturbation theory. As we extend our calculations to higher orders of perturbation theory, the creation of numerous ``virtual'' particles and states becomes possible.
+\newpar
+Virtual states are extremely short-lived states complying Heisenberg's uncertainty principle~\cite{Heisenberg1927}, $\Delta E \cdot \Delta t \geq \hbar$, with $\hbar$ being the reduced Planck's constant. This leads to states known as \textsc{multi-particle} or \textsc{intermediate} states \cite{Peskin:1995ev}. We can mathematically decouple the ``\textsc{nuclear}'' intermediate states from ``\textsc{sub-nuclear}'' intermediate states, which involve the creation of mesons. For that, we introduce the (two-body) \textsc{seagull} operator, denoted by $B_{\mu\nu}(x, y)$. This operator accounts for the possibility of (virtually) exciting and de-exciting high mass states that contain nucleon-antinucleon pairs. This ``pair'' contribution is described by an $\vec{A}^2$ term. 
+In such a way, transitions via \textsc{nuclear} intermediate states are captured by the first term in \cref{eq:chap1:Hint} treated in second-order perturbation theory. Meanwhile, transitions involving \textsc{sub-nuclear} states are described by the second term in \cref{eq:chap1:Hint} treated in first-order.
+The \textsc{nuclear} intermediate states are often associated with giant dipole resonances (\textsc{GDR})~\cite{Friar-1975}. Interestingly, the lifetime of these resonances~\cite{JSpeth_1981,resonances} might be connected to the (partial) half-life of the nuclear two-photon decay \cite{MARGOLIS1961524}.
+
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[width=0.65\textwidth]{freiman.png}
+    \caption{``Feynman'' diagram extended by an energy dimension describing the nuclear two-photon decay.}
+    \label{fig:chap1:freiman}
+\end{figure}
+
+\Cref{fig:chap1:freiman} shows a diagram trying to describe the different interaction possibilities previously described. In \cref{fig:chap1:freiman} the symbol \(\left| i \right\rangle\) represents the initial state, while \(\left| f \right\rangle\) denotes the final state after decay. Photons are characterized by their energy, \(\omega_k\)\footnote{Considering $\hbar=1$, it follows that $E=\hbar\omega=\omega$. This allows us to refer to the radiation frequency directly as energy.}, and momentum, \(k_k\). A more intense color, within the intermediate state region, indicates higher energy and density of states. The sketch includes two pairs of two simultaneously emitted photons to explore the different possibilities.
+The diagram is created by expanding upon the traditional Feynman diagram by incorporating an extra energy dimension to include the intermediate states \(\left| n \right\rangle\). Given that the energy of the transition must be conserved, the sum of the photon energies must equal to it, i.e. \(E_i - E_f = \omega = \omega_1 + \omega_2 \). This principle is depicted in the diagram through a reflection symmetry at \(\omega/2\), marked by a dashed line among the intermediate state region. 
+Each dot signifies a point of interaction (a \textsc{vertex}). If a vertex is positioned at one extreme, symmetry implies the other is at the opposite end, indicating that one photon's energy would be zero, essentially describing a single-photon decay. 
+Moving both vertices to \(\omega/2\) can imply either a single vertex generating two photons or two vertices each emitting a photon. The former scenario is described by the \textsc{seagull} operator, where sub-nuclear states are both created and annihilated in a single interaction, producing two photons. In this scenario, the condition \(\omega_1 = \omega_2\) is not necessarily met, allowing again for a continuum of energy within $\omega$. The later scenario is described by the first term in \cref{eq:chap1:Hint}. Horizontally moving in the diagram explores the photon energies $E_\gamma$, while vertical movements access intermediate states of (higher) energy $E_n$.
+
+Within this introduced theoretical framework, and taking into account ``natural" Gaussian units\footnote{This unit system, also known as ``\textsc{God-given}'', uses: \[\hbar = c = 1 \quad;\quad \epsilon_0 = \frac{1}{4\pi}.\] The Gaussian system of units eliminates a factor of $4\pi$ from Coulomb's law by introducing factors of $4\pi$ into Maxwell's equations.}, the interaction Hamiltonian is represented as follows \cite{Kramp-1987}:
+\begin{equation}
+    H_{\mathrm{I}} = \int j_\mu(x) A^\mu(x) d^3x + \frac{1}{2} \int B_{\mu\nu}(x, y) A^\mu(x) A^\nu(y) d^3x d^3y.
+    \label{eq:chap1:Hint}
+\end{equation}
+
+%The (GRECHUNKIN URRS)
+%presence of such a nuclear "resonance" can be
+%considered as a result of a sharp increase in the
+%density of the "dipole" levels of the nucleus in the
+%region of the "resonance" energy (by "dipole" lev-
+%els we understand here levels reached by a nucleus,
+%originally in the ground state, by absorption of a
+%dipole quantum). It is natural to propose that in a
+%nuclear transition with emission of two dipole quan-
+%ta the greatest contribution is due to the virtual
+%transitions at the levels near the "dipole resonance"
+%of the nucleus.
+In the specific case of \(0^{+} \rightarrow 0^{+}\) transitions, accessible through our novel approach \cref{sec:chap1:twophotonstorage}, we will encounter double transitions of identical multipolarity. This enables the investigation of the so-called diagonal transition polarizabilities, such as \(\alpha_{E1E1}\) (equivalent to \(\alpha_{2E1}\) or, in our notation, \(\alpha_{E1}\)). Conversely, for other cases (defined as mixed transitions in \cref{tab:chap1:twophotonstudies}), we will observe a mixture of multipolarities, allowing the study of the so-called off-diagonal transition polarizabilities, for example, \(\alpha_{E3M1}\). The different experimental cases are explored in \cref{sec:chap1:previousexperiments}.
+
+Based on the interaction Hamiltonian contained in \cref{eq:chap1:Hint}, Kramp {\it et al.}\,\cite{Kramp-1987} derived the total $2\gamma$ decay probability for $0^{+}\rightarrow0^{+}$ ($E0$) transitions (see Eq.\,(A.42) in \cite{Kramp-1987}):
+\begin{equation}
+  W_{\gamma\gamma}=\frac{\omega_0^{7}}{105\pi}\left[\alpha_{E1}^{2}+\chi_{M1}^{2}+\omega_0^{4}\frac{\alpha_{E2}^{2}}{4752}\right] = \frac{\omega_0^{7}}{105\pi}M_{\gamma\gamma}^{2},
+  \label{eq:chap1:2gd}
+\end{equation}
+where $\omega_0$ denotes the energy difference between the initial and final state, while 
+$\alpha$ and $\chi$ denote the electric transition polarizability and the magnetic transition susceptibility, respectively. The sum of terms within the brackets is equivalent to the squared magnitude of the cumulative nuclear matrix element, denoted as $M_{\gamma\gamma}^{2}$.
+These observables describe the difference of the electric polarizabilities and magnetic susceptibilties between the two $0^{+}$ states and are complementary to the standard nuclear polarizabilities and susceptibilities, which describe the response of the nucleus to a perturbation by electromagnetic fields, and are related to changes  of the nuclear charge distribution and currents inside the nucleus.
+
+%Prior to the nuclear matrix element determinations, we have to establish the units and nomenclature. Our unit system is aligned with the conventions utilized by Kramp \etal, this is: 
+
+%He did not state the second relation explicitly, but inferred through his definition of the fine structure $\alpha = e^2$, with $\alpha^{-1} = 137.035999206(11)$~\cite{alphaNature}.
+%In this unit system, $1~\mathrm{MeV}^{-1} = 197.3269804~\mathrm{fm}$. This conversion is used in most of the following relations.
+%\newpar
+The electric transition probabilities are defined as \cite{Kramp-1987}:
+\begin{equation}
+    \alpha_{EL} = \frac{8\pi}{(2L + 1)^2}\sum_{n} \frac{\left\langle 0_1^+ \middle\| {i}^{L} M(EL) \middle\| 1_{n}^{{(-1)}^L} \right\rangle \left\langle 1_{n}^{{(-1)}^L} \middle\| {i}^{L} M(EL) \middle\| 0_2^+ \right\rangle}{E\left(1_{n}^{{(-1)}^L}\right)-E\left(0_1^+\right)-\frac{1}{2} 
+    \left[E\left(0_2^+\right) - E\left(0_1^+\right)\right]}.
+    \label{eq:chap1:alphaEL}
+\end{equation}
+
+The transitional magnetic-dipole susceptibility consists of a paramagnetic and a diamagnetic term \cite{Friar-1974,Friar-1975, Kramp-1987}:
+
+\begin{equation}
+   \chi_{M1}^2= \chi_{p}^2+\chi_{d}^2\,, 
+ \label{eq:chap1:chim1}
+\end{equation}
+
+%\begin{widetext}
+\begin{equation}
+    \chi_{p}= -\frac{8\pi}{9}  
+    \sum_n{
+    \frac{\langle0_1^+\| M(M1) \| 1_n^+\rangle \, \langle 1_n^+\| M(M1) \|0_2^+ \rangle}
+    {E\left(1_n^+\right)-E\left(0_1^+\right)-\frac{1}{2} 
+    \left[E\left(0_2^+\right) - E\left(0_1^+\right)\right] }}\,,
+    \label{eq:chap1:chip}
+\end{equation}
+%\end{widetext}
+
+\begin{equation}
+    \chi_{d}= -\; \frac{e^2}{6m}
+    \langle0_1^+\| r^2 \| 0_2^+\rangle\,,
+    \label{eq:chap1:chid}
+\end{equation}
+where the mass ($m$) in \cref{eq:chap1:chid} corresponds to the mass of the nucleon, as it is defined by~\cite{Friar-1974}.
+We define the nucleon mass as the average between the mass of proton, $m_p = 938.27208816(29)$ MeV~\cite{CODATA}, and neutron, $m_n = 939.56542052(54)$~MeV~\cite{CODATA}, $m = 938.91875434(31)$~MeV. 
+
+\Cref{eq:chap1:chid} can be connected to the (dimensionless) monopole transition strength $\rho\left(E0\right)$ \cite{Kibedi-2022}:
+\begin{equation}
+    \rho\left(E0\right) = \frac{\left\langle f \middle\| M(E0) \middle\| i \right\rangle}{eR^2},
+    \label{eq:chap1:rho}
+\end{equation}
+giving:
+\begin{equation}
+    \chi_{d}= -\; \frac{e^2}{6m} \cdot R^2 \sqrt{\rho^2\left(E0\right)},
+    \label{eq:chap1:chidrho}
+\end{equation}
+where the nucleus radius can be approximated by $R \approx 1.2 \times \mathrm{A}^{1/3}$.
+
+\section{Experimental framework}\label{sec:chap1:previousexperiments}
+All previous experiments conducted to date, of which $31$ studies are available online and recompiled in \cref{tab:chap1:twophotonstudies}, have employed $\gamma$-ray spectroscopy (\cref{subsubsection:intro:gammadecay}) in order to investigate the two-photon decay. 
+The main experimental challenge lies in distinguishing the relatively small signal of the two simultaneously emitted photons from other (direct or indirect) photon sources, such as single-photon decay (\cref{subsubsection:intro:gammadecay}), internal pair creation (\cref{subsubsection:intro:internalpaircreation}) or internal-conversion electrons (\cref{subsubsection:intro:internalconversion}), due to the continuous energy spectrum associated with the two-photon emission. Therefore, ideally, the search for nuclear $2\gamma$ decays is conducted in even-even nuclei with a first excited $0^{+}$ state, since the emission of a single $\gamma$-ray is forbidden. 
+
+In fact, among all previous studies (recompiled in \cref{tab:chap1:twophotonstudies}), the only cases where the $2\gamma$ decay of a $0^{+}\rightarrow0^{+}$ transition was successfully observed using $\gamma$-ray spectroscopy are $^{16}\mathrm{O}$~\cite{Schirmer-1984}, $^{40}\mathrm{Ca}$~\cite{Schirmer-1984}, and $^{90}\mathrm{Zr}$~\cite{Kramp-1987}. In these cases, the excited $0^{+}$ states are located at high excitation energies and the observed branching ratios ($\Gamma_{\gamma\gamma} / \Gamma_{\mathrm{tot}}$) for the $2\gamma$ decay are of the order of $10^{-4}$. They were performed using the Heidelberg-Darmstadt \textsc{crystal ball}~\cite{Simon1980,Metag1983,METAG1983331} (similar to the one in \cref{fig:chap1:agata}).
+\begin{table}[hbt]
+    \centering
+    \caption{Previous experiments on the nuclear two-photon decay.}
+    \label{tab:chap1:twophotonstudies}
+    \begin{threeparttable}
+    \begin{tabular}{cc}
+    \toprule
+    \toprule
+    \textsc{Nucleus} & \textsc{Reference} \\
+    \midrule\midrule
+    \isotope{16}{O}\tnote{*} & \cite{PhysRevLett.7.170,PhysRev.135.B294,BralthwalteEtAl,PhysRevLett.35.1333,Kramp-1987}\\
+    \isotope{40}{Ca}\tnote{*} & \cite{refId0,PhysRev.125.639,PhysRevC.2.462,PhysRevC.8.216,Schirmer-1984}\\
+
+    \isotope{90}{Zr}\tnote{*} &   \cite{Langhoff1961,PhysRevLett.6.475,refId0,PHDSUTTER,osti_4728283,VANDERLEEDEN196527,PhysRevC.1.1025, PhysRevC.2.462,BralthwalteEtAl,Nakayama1973,ASANO1973557,Schirmer-1984}  \\
+    \isotope{98}{Mo}\tnote{*}    &   \cite{Henderson-2014}\\
+
+    \isotope{12}{Ca}\tnote{**}    & \cite{MCCALLUM1960382,PhysRev.135.B294,BralthwalteEtAl}  \\
+    \isotope{85}{Rb}\tnote{**}    &   \cite{85rb}  \\
+    \isotope{109}{Ag}\tnote{**}   &   \cite{Knauf1965,109ag2}\\
+    \isotope{114}{In}\tnote{**}   &   \cite{GRABOWSKI1962648,ChurchGerholm,Church1966}\\
+    \isotope{131}{Xe}\tnote{**}   &   \cite{PhysRevLett.4.363,aliabdulla}\\
+    \isotope{137}{Ba}\tnote{**}   &   \cite{PhDBeusch,PhDWalz,Walz-2015,Soederstroem-2020}\\
+    \bottomrule
+    \bottomrule
+    \end{tabular}
+    \begin{tablenotes}
+        \item[*] $0^{+}\rightarrow0^{+}$ transitions.% giving the diagonal nuclear polarizabilities.
+        \item[**] Mixed transitions.%producing the off-diagonal nuclear polarizabilities.
+    \end{tablenotes}
+  \end{threeparttable}
+  \end{table}
+
+The most surprising result obtained in the successful measurements (\cite{Schirmer-1984,Walker2020}) is that the angular correlation
+between the two photons was asymmetric about $90^\circ$, implying that the contribution from two subsequent $M1$ ($2M1$) transitions and $2E1$ transitions are of a similar strength, while naively a dominance of the $2E1$ decay would be expected (see Weißkopf estimates in \cref{fig:intro:Weiss}).
+This has been explained by a strong cancellation effect in the electric-dipole transition
+polarizability in these doubly-magic (\isotope{16}{O} and \,\isotope{40}{Ca}) and semi-magic (\isotope{90}{Zr}) nuclei.
+This cancellation effect is related to the different structure of the two $0^{+}$ states, i.e. different contributions from $0p-0h$ and $np-nh$ excitations across the closed shells \cite{Brown23}.
+
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[width=0.55\textwidth]{agata.jpg}
+    \caption{Example of \textsc{crystal ball}: \textsc{AGATA} at the Laboratori Nazionali di Legnaro.}
+    \label{fig:chap1:agata}
+\end{figure}
+
+\section{Nuclear two-photon decay at storage rings}\label{sec:chap1:twophotonstorage}
+Low-lying $0^{+}$ states in medium-mass even-even nuclei have typical lifetimes in the order of a few ten to hundred nanoseconds\,\cite{Garg-2023} because the $E0$ decay in these nuclei proceeds entirely via IC and therefore is a relatively slow process\,\cite{Kibedi-2022}. However, the $2\gamma$ decay width varies strongly with the excitation energy, see (\cref{eq:chap1:2gd}), leading to extremely small branching ratios ($\Gamma_{\gamma\gamma} / \Gamma_{\mathrm{tot}} \lesssim 10^{-6}$) for $\omega_0<1$\,MeV. Until now, direct searches for the $2\gamma$ emission from lower-energy $0^{+}$ states were unsuccessful, reporting only upper limits\,\cite{Henderson-2014}. A $2\gamma$ decay at energies below $1$\,MeV was exclusively observed from the $11/2^{-}$ isomer in $^{137}\mathrm{Ba}$ using the fast-timing method \cite{Walz-2015,Soederstroem-2020}, reporting a branching ratio of $\Gamma_{\gamma\gamma} / \Gamma_{\mathrm{tot}} \sim 2 \times 10^{-6}$ \cite{Walz-2015}. Here, the single-photon decay is strongly hindered due to its highly unfavorable multipolarity ($M4/E5$).
+Alternatively, if all bound electrons are removed the \textsc{IC} is disabled\,\cite{Litvinov-2003} and therefore $0^+$ states can only decay by $2\gamma$ emission to the ground state or by particle emission ($\alpha$- or $\beta$-decay) in unstable nuclides. This is sketched in \cref{fig:chap1:novel_method_sketch}.
+\begin{figure}[hbt]
+    \includegraphics[width=\textwidth]{electromagnetic_decay_ring.png}
+    \caption{Nuclear electromagnetic decays of an atom (a), and the isolation in low-lying isomers (b) of the $0^+\rightarrow0^+$ $2\gamma$ decay (c) in bare nucleus (b,c).}
+    \label{fig:chap1:novel_method_sketch}
+\end{figure}
+In this thesis we report the first direct measurement of the $2\gamma$ decay of the first excited $0^+$ state in stored, fully-ionized $^{72}\mathrm{Ge}^{32+}$ nuclei. This isomer, with an excitation energy of $691.43\left(4\right)$\,keV\,\cite{ENSDF}, possesses a half-life of $444.2\left(8\right)$\,ns~\cite{BRAUN1984} in neutral atoms. However, when it is fully ionised, the partial half-life for this isolated decay can be estimated to extend to several hundred milliseconds, hence giving an expected branching ratio of $\Gamma_{\gamma\gamma} / \Gamma_{\mathrm{tot}} \sim 2 \times 10^{-6}$. 
+\Cref{fig:chap1:extrapolation} contains this estimation. 
+\newpar
+The solid line in \cref{fig:chap1:extrapolation} corresponds to the curve obtained by considering the ratio $W_{\gamma\gamma}$ and $\omega_{0}^{7}$ constant, with the constant being the average value of the sum of squares of the previously determined \cite{Schirmer-1984, Kramp-1987} $M_{\gamma\gamma}$ nuclear matrix elements in \cref{eq:chap1:2gd}. The vertical red dotted line in \cref{fig:chap1:extrapolation} is placed at the excitation energy of the isomeric state of $^{72}\mathrm{Ge}$.
+\newpar
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[width=\textwidth]{half-life_omega_691.png}
+    \caption{Measured nuclear two-photon decay (partial) half-lives, taken from \cite{Schirmer-1984, Kramp-1987}, as a function of their excitation energy. The (red) star indicates the predicted half-life for the first excited state of \,\isotope{72}{Ge}, derived from the extrapolation shown by the blue line, which has not been measured previously.}
+    \label{fig:chap1:extrapolation}
+\end{figure}
+
+By combining the isochronous mode (\cref{sec:chap2:isomode}) of a storage ring (\cref{subsec:chap2:storage}) with non-destructive single-ion-sensitive resonant Schottky detectors (\cref{subsec:chap2:detection}), the new experimental technique termed combined Schottky plus Isochronous Mass Spectrometry (\textsc{S+IMS}) (\cref{chap:chap2:methodology}), we were able to produce, store and resolve the isomeric state (\cref{sec:intro:isomers}) of fully-stripped ions and measure the time evolution of the number of observed isomers with a resolution of the order of milliseconds (\cref{chap:results}).
+The thereby developed method is a sensitive approach to search for unknown excited $0^+$ states in exotic nuclei and for the measurement of their $2\gamma$-decay half-lives.
+The foundations of this novel methodology are addressed in \cref{chap:chap2:methodology}.
+\begin{center}
+    \vspace*{1cm}
+    \pgfornament[width=0.8cm, color=darkred]{5}
+    %\pgfornament[width=5cm, color=darkred]{71}
+    %\pgfornament[width=5cm, color=darkred]{71}
+    \vspace*{\fill}
+\end{center}

@@ -1,0 +1,50 @@
+%!TEX root = ../thesis.tex
+
+\chapter{Peak Shape and Deconvolution of Isomers}\label{apdx:peakshapedeconvolv}
+
+The analysis of \textbf{peak shapes} in \textsc{Schottky + Isochronous Mass Spectrometry} (see \cref{chap:chap2:methodology}) data reveals a one-to-one correlation with the mass-to-charge ratio ($m/q$) of the ions. This relationship allows for the identification of incorrect peak assignments and the presence of isomeric states (or contaminants), both characterized by deviations from the expected peak shape for a given $m/q$. Furthermore, this approach enables high-precision measurements of mass and half-life for unresolved isomers as I will demonstrate.
+\newpar
+Initially, the goal is to define the probability distribution $f(m/q)$ that describes the peak's shape evolution across different $m/q$ values. Given the complexity of directly solving this problem, we rely so far on ``extrapolating" the shape of unresolved peaks to that of the nearest well-defined ion peak\footnote{A peak is considered well-defined if it exhibits a signal-to-noise ratio that clearly delineates the shape of the distribution and is free from contamination.}, by subtracting its distribution through interpolation. This \textsc{cleaned}, normalized distribution is then used to model the shape of both the isomer and ground state\footnote{For low-lying isomers we can assume that the isomer and ground state have the same shape.}, albeit at different scales and positions. The challenge lies in accurately determining these scales and positions through optimization techniques supported by various \textsc{Python} libraries.
+\newpar
+The optimization process requires a cost function to evaluate the accuracy of the model against experimental data, focusing on the peak's positions and their scaling. I assume that the isomer decays solely to the ground state following an exponential function and I also assume a stable ground state, in such a way that the number of ions under the ground state distribution should increase accordingly (see \cref{eq:apdx3:Ngs}). This allows us to link the scaling factors to this decay rate, thus simplifying the parameter space.
+\newpar
+The peak's positions are determined by finding in the first and last time frame, the position that minimizes the cost function. These fix the position parameters (their masses) through the whole time. Similarly, the initial scales are fixed manually by finding the scaling factors minimizing the cost function. 
+
+This novel procedure extends our capability to analyze isomers beyond the \textsc{isochronous window} and refine peak contamination analysis within the \textsc{isochronous window}. It not only improves measurement uncertainties but also enables the determination of \textsc{isomeric ratios}.
+
+The position of the peaks can be fixed easily, the challenge is to set the proper scale. We have one more \textsc{ansatz}, which is that we know that the isomer decays exponentially via photon emission to the ground state, at least in the isomers present in the data, and therefore the ground state increases its population accordingly (see \cref{eq:apdx3:Ngs}). 
+In such a way that we can relate the scale to an exponential function and to the initial scale, for the isomer decaying and for the ground state increasing and with the same rate, thus reducing more the parameters needed. The initial scale can be determined by us by hand, since doing for one time frame (the first) is not so time demanding, and fed it into the minimization procedure, and apply it to the rest of frames, which can be hundreds. 
+Therefore, with the minimization procedure we can find in each iteration the decay constant which make the peak distribution to ``fit" (based on the cost function) the best the experimental peak. 
+For the minimization we have used \textsc{scipy-optimize-differential-evolution}, a \textsc{Python} method from the library \textsc{Scipy}~\cite{scipy}.
+If everything works, the average of the decay constant that reduced your cost function gives you the half-life of the isomeric state and the standard deviation of them, the error in your half-life. The energy is determined by the distance between both peaks.
+We this new procedure we can extend our analysis results to isomers far away from isochronicity and in addition, for the ones in the isochronous window if the had any contamination from the ground state which is very likely, this method can be applied to the case of one peak. In that case, it would be like the only thing in our data is that peak, no contamination, improving thus the uncertainties. It also allows us to determine the isomeric ratio.
+
+The decay and growth of isomeric and (stable) ground states, respectively, can be mathematically expressed and related to the scaling parameters and decay constant as follows:
+\begin{align}
+    N\left(t\right)_{\mathrm{iso}} &= N\left(0\right)_{\mathrm{iso}} \cdot exp\left(-\lambda_{\mathrm{iso}} \cdot t\right), \\
+    N\left(t\right)_{\mathrm{gs}} &= N\left(0\right)_{\mathrm{gs}} + N\left(0\right)_{\mathrm{iso}}\cdot\left(1- exp\left(-\lambda_{\mathrm{iso}} \cdot t\right)\right),\label{eq:apdx3:Ngs} \\
+    N\left(0\right)_{\mathrm{iso}} &= S\left(0\right)_{\mathrm{iso}} \cdot \sum PDF, \\
+    N\left(0\right)_{\mathrm{gs}} &= S\left(0\right)_{\mathrm{gs}} \cdot \sum PDF, \\
+    N\left(t\right)_{\mathrm{iso}} &= S\left(0\right)_{\mathrm{iso}} \cdot \sum PDF \cdot exp\left(-\lambda_{\mathrm{iso}} \cdot t\right), \\
+    N\left(t\right)_{\mathrm{gs}} &= \left[S\left(0\right)_{\mathrm{gs}}  +  S\left(0\right)_{\mathrm{iso}}\cdot\left(1- exp\left(-\lambda_{\mathrm{iso}} \cdot t\right)\right)\right] \cdot \sum PDF,
+\end{align}
+where $N$ is the number of ions of a specie, $PDF$ is the probability density function which is given by the interpolated shape of reference, $S$ is the scaling factor and $\lambda_\mathrm{iso}$ is the decay constant of the isomeric state.
+\newpar
+These equations were implemented into the \textsc{Python} methods below, where the scale at time \textsc{tframe} is computed and then the corresponding peaks' spectrograms to the isomer, \textsc{iso}, and to the ground state, \textsc{gs}, are displaced to the proper position in the frequency axis by \textsc{ri} and \textsc{rg} respectively.
+
+\begin{mintedbox}{python}
+    def simulate_distribution(rates,tframe, ri, rg, scale_iso_0, scale_gs_0, PDF):
+        scale_iso = np.exp(-rates[0] * tframe) * scale_iso_0
+        scale_gs  = scale_gs_0 + scale_iso*(1-np.exp(-rates[0]*tframe))
+        iso       = np.roll(PDF * scale_iso, ri)
+        gs        = np.roll(PDF * scale_gs, rg)
+
+        return iso + gs
+\end{mintedbox}
+
+\begin{mintedbox}{python}
+    def cost_function(rates, tframe, ri, rg, experimental_distribution, scale_iso_0, scale_gs_0):
+        simulated_distribution = simulate_distribution(rates, tframe, ri, rg, scale_iso_0, scale_gs_0)
+        return np.average((experimental_distribution - simulated_distribution) ** 2)
+\end{mintedbox}
+

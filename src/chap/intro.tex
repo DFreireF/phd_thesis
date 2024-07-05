@@ -1,0 +1,296 @@
+%!TEX root = ../thesis.tex
+
+\chapter{Introduction}\label{chapter:introduction}
+\lettrine{W}{ithin} this introductory chapter, I discuss the fundamental concepts and main motivations of the thesis; starting with the discussion of the importance of masses and half-lives of atomic nuclei in \cref{sec:intro:masses_and_halflives}. 
+\newpar
+To achieve precise measurements, mass spectrometry and half-life spectroscopy techniques are reviewed, with a particular focus on storage ring mass spectrometry as discussed in \cref{subsubsec:intro:srings} and in \cref{subsec:intro:storage_ring_mass_spectro}.
+\newpar
+Radioactive decays play a pivotal role in nuclear physics, and are shortly explored in \cref{sec:intro:radioactive_decays}. This includes overviews of alpha decay (\cref{subsec:intro:alphad}), beta decay (\cref{subsec:intro:betad}), electromagnetic decays (\cref{subsec:intro:electromagnetic_decays}), with a particular emphasis on $E0$ transitions (\cref{subsection:intro:e0trans}), each revealing different aspects of nuclear behavior and stability.
+\newpar
+Furthermore, the existence of isomers, as addressed in \cref{sec:intro:isomers}, offers unique insights into the deformation (\cref{subsec:intro:deformation}) and shape coexistence (\cref{subsec:intro:shape_coexistence}) within nuclei. The role of isomers in nucleosynthesis is discussed in \cref{subsec:intro:role_in_nucleosynthesis}.
+
+\section{Masses and half-lives}\label{sec:intro:masses_and_halflives}
+%Why do we measure mass and lifetimes (and reaction rates)?
+Understanding the masses and half-lives of nuclei, along with the reaction rates of nuclear collisions, is crucial for deciphering the underlying principles of nuclear processes. Mass measurements elucidate the energy dynamics within nuclear reactions and decays through the mass-energy equivalence~\cite{energymass} (see \cref{eq:intro:massenergy}). This principle states a direct relationship between the mass of an object and its energy content, stressing the importance of mass in determining the energy release during nuclear decay:
+\begin{equation}
+    E = mc^2.
+    \label{eq:intro:massenergy}
+\end{equation}
+A significant consequence of mass-energy equivalence is that the energy released in a nuclear process can be determined simply by measuring the mass difference between the initial (parent nucleus) and final state (daughter nucleus). This relationship is crucial for the decay to be energetically feasible. A decay process where a lighter mass nucleus would transform into a heavier mass nucleus is not possible under normal circumstances.
+\newpar
+The atomic mass unit ($u\approx 931.49\,\,\mathrm{MeV}/c^2$~\cite{CODATA}) serves as a standardized measure of the mass, defined as $\frac{1}{12}$ the mass of a \,\isotope{12}{C} atom~\cite{IUPAC}.
+It is smaller than the mass of a proton ($\sim 938.27$ $\mathrm{MeV}/c^2$~\cite{CODATA}) or a neutron ($\sim 939.56$ $\mathrm{MeV}/c^2$~\cite{CODATA}) since it includes the nuclear and atomic binding energy of the \,\isotope{12}{C} atom constituents. 
+The concept of mass excess (defect) makes more convenient to quantify the nuclear binding energy and the energetics of nuclear reactions, therefore it is more commonly used to tabulate atomic masses. The mass excess of an atom with $A$ nucleons is defined as:
+\begin{equation}
+    \Delta M = M_{\mathrm{atom}} - A \cdot u.
+\end{equation}
+As a consequence, the mass excess for \,\isotope{12}{C} atom is $0$.
+%%%%MAYBE PLOT OF MASS EXCESS AND NUCLIDE CHART or binding energy
+\newpar
+Most of the mass measurements (see \cref{sec:mass_and_halflife_spectro}) yield atomic masses $M_{\mathrm{atom}}$ or masses of ions.
+The nuclear mass $M_{\mathrm{nuclear}}$ can be obtained by accounting for electron masses $M_{e^{-}}$, the binding energies $B_{e^{-}}$ of electrons, the proton number $Z$ and (if applicable) the excitation energy $\omega$:
+\begin{equation}
+    M_{\mathrm{nuclear}} = M_{\mathrm{atom}} - Z \cdot M_{e^{-}} + \frac{B_{e^{-}}\left(Z\right)}{c^2} + \frac{\omega}{c^2}.
+\end{equation}
+
+Since compared to the masses of protons and neutrons (even to the electron mass), the electron binding energies are small (often in the order of a few eV to keV), they usually can be neglected in calculations. Although, not when performing high-precision measurements, as e.g. with the Penning-trap mass spectrometer \textsc{PENTATRAP}~\cite{Repp2012} on highly charged ions \cite{PhysRevLett.124.113001}.
+\newpar
+
+On the other hand, the half-life of a nuclear state reflects its stability. Short-lived states indicate less stable configurations, while long-lived states suggest greater stability. Measuring the half-life of an excited nuclear state or a radioactive isotope gives insights into the nuclear structure through the dynamics of nuclear reactions and decay processes.
+\newpar
+These measurements are essential in nuclear astrophysics, particularly in understanding stellar nucleosynthesis~\cite{rolfs1988cauldrons} (more information in \cref{subsec:intro:role_in_nucleosynthesis}). In addition, half-lives and reaction rates of subatomic particles and nuclei can be used to test the predictions of the Standard Model~\cite{standardmodel}, providing opportunities to discover new physics~\cite{TheStandardModelAndBeyond} or confirm existing theories.
+Knowledge of nuclear lifetimes and reaction rates is also crucial in various applications, such as nuclear medicine by using radioisotopes.
+
+
+\section{Mass-and half-life spectrometry}\label{sec:mass_and_halflife_spectro}
+The fields of mass spectrometry and half-life spectroscopy have been dominated mainly by Penning traps (\cref{subsubsec:intro:ptraps}) and storage rings (\cref{subsubsec:intro:srings}), both based on stored ions~\cite{BLAUM20061}. Their main differences originate from their geometry, i.e. the volume in which the ions are confined, which constrains the energy of the stored ions. 
+
+\subsubsection{Penning traps}\label{subsubsec:intro:ptraps}
+\blocktitle{\includegraphics[width=1.8cm]{doublycompensated.png}}
+In Penning traps, the ions are confined in very small volumes ($\sim \mathrm{cm}^{3}$) by the superposition of a constant magnetic field in the axial direction (confining therefore in the radial direction) and a quadrupolar electrostatic potential for confining in the axial direction~\cite{Gabrielse}. This allows for extremely precise manipulation and control over the ions, which translates into ultra high-precision mass measurements~\cite{Sturm2014,Smorra2017}.
+\newpar
+The most precise mass measurements are realized by this technique, specially of stable species~\cite{heisseHighPrec}. Stable since, the potential well in which the ions are trapped is too shallow and low in energy, therefore if radioactive isotopes are produced, they need extensive cooling to reach a few kiloelectronvolts before trapping them, this takes time, limiting the half-lives to milliseconds. Also, the number of interactions between the confined ions is reduced to the Coulomb repulsion, due to the small energies. Therefore, unlike in storage rings, no nuclear reactions with targets, e.g. proton capture, can be observed.
+\subsubsection{Storage rings}\label{subsubsec:intro:srings}
+On the other hand, we have storage rings~\cite{STECK2020} where the ions are confined with relativistic energies in huge ellipsoid-like volumes ($\sim \mathrm{m}^{3}$), and even more due to the periodicity of the ring, this volume is extended $N$ times if the ions revolve $N$ times the storage ring. This offers unique capabilities no other mass spectrometry technique can offer. 
+\newpar
+This large volume allows for the simultaneous storage and manipulation of various ion species, in contrast to traps. When coupled to an in-flight radioactive-ion beam production facility, this set-up enables the simultaneous measurement of masses and half-lives of short-lived (exotic) nuclear states. 
+It also enables the detection of decays with large $Q$ values, as the daughter particles remain confined within the (large) volume~\cite{LitvinovChen}.
+The ability to place targets at fixed positions in storage rings facilitates a higher number of reactions and interactions, which is crucial for studies of nuclear reactions, simulating astrophysical conditions~\cite{Jan124Xe,GLORIUS2023,Dellmann2024}, such as with proton targets~\cite{gasjetESR} (or, in the future, neutron targets~\cite{reneReactor,reneTarget}). The capability to recirculate enhances the number of reactions (luminosity) without necessitating denser targets. However, the drawbacks compared to Penning traps include more complex ion dynamics and, a priori, lower precision in mass measurements for species that can be measured by Penning traps.
+\newpar
+In the context of this thesis, the term \textsc{storage rings} specifically refer to heavy-ion storage rings. Currently, there are three in operation: the \textsc{Cooler-Storage Ring}~\cite{CSRe} (\textsc{CSR}e) at the Institute of Modern Physics (\textsc{IMP}) of the Chinese Academy of Sciences, the \textsc{Rare RI Ring}~\cite{R3}~(\textsc{R3}) at \textsc{RIKEN}, and the, firstly developed, \textsc{Experimental Storage Ring}~\cite{ESR} (\textsc{ESR}) at the Gesellschaft für Schwerionenforschung (\textsc{GSI}).
+
+\subsection{Storage ring mass spectrometry}\label{subsec:intro:storage_ring_mass_spectro}
+At storage rings (like the one in \cref{fig:chap2:esr}), the revolution frequency ($f$) of the revolving ions is related to the mass-over-charge ($m/q$) ratio and to the velocity spread ($\Delta v$) by the relation\,\cite{Franzke-2008}:
+
+\begin{equation}
+    \frac{\Delta{f}}{f}=-\frac{1}{\gamma_t^2}\frac{\Delta(m/q)}{m/q}+\Bigg(1-\frac{\gamma^2}{\gamma_t^2}\Bigg)\frac{\Delta v}{v},
+    \label{eq:intro:basic}
+\end{equation}
+where $v$ and $\gamma$ are the velocity and the Lorentz factor of the ions, respectively. The machine parameter $\gamma_t$ is related to the relative change of the orbit length, $C$, caused by a relative change of magnetic rigidity\,\cite{Steck-2020}:
+\begin{equation}
+    B\rho=mv\gamma/q.
+    \label{eq:intro:brho}
+\end{equation}
+Ideally, we would like to have a one-to-one mapping between a specific revolution frequency and a unique mass-to-charge ratio. However, the second term in \cref{eq:intro:basic} prohibits this. Mathematically, if we would like to eliminate this second term we could: either reduce the momentum spread between ions to zero ($\Delta v \rightarrow 0$) or cancel out the term in parentheses by tuning $\gamma \rightarrow \gamma_t$. Based on these two approaches, two different mass spectrometry techniques emerge: \textsc{Schottky Mass Spectrometry}~\cite{sms1} (\textsc{SMS}) and \textsc{Isochronous Mass Spectrometry}~\cite{iso1} (\textsc{IMS}).
+
+\subsubsection{\textsc{SMS}}
+
+This technique, sketched in \cref{fig:intro:sms_nutshell}, focuses on minimizing the velocity spread ($\Delta v$) of the ions as much as possible, usually achieving relative velocity spreads of $\Delta v / v \sim 10^{-7}$~\cite{radonSMS} for particle numbers $<10^{3}$, which suites radionuclides. This is accomplished by employing advanced cooling methods to stabilize the ion velocities (more on this in \cref{subsec:intro:cooling}). Therefore, this technique should be known as \textsc{Cooled Mass Spectrometry} (\textsc{CMS}), although traditionally \textsc{CMS} is accompanied by the use of \textsc{Schottky detectors} (more in \cref{subsubsec:chap2:schottkyCR}), hence the name Schottky Mass Spectrometry (\textsc{SMS}). Schottky detectors are used due to their non-destructive nature, i.e. they do not modify the benefits obtained at cooling.
+
+\myboxfig{green!90!black}{\textbf{Sketch of the SMS technique}}{
+    \centering
+    \includegraphics[width=\textwidth]{sms.png}
+    \captionof{figure}{Schottky Mass Spectrometry in a nutshell.}
+    \label{fig:intro:sms_nutshell}
+}
+
+\subsubsection{\textsc{IMS}}\label{subsubsec:intro:isoMS}
+
+In contrast, \textsc{IMS} aims to align the Lorentz factor of the ions ($\gamma$) with the \textsc{transition energy} ($\gamma_t$). This is done by fine-tuning the energy of the ions so that it closely matches the ion-optical parameter $\gamma_t$, creating a condition where the mass measurement is less affected by the velocity spread of the ions. This arises because, although the velocity spread remains unchanged, particles with different velocities follow different paths, with the fastest particles travelling a longer path compared to the slowest. This difference in path length compensates the velocity spread~\cite{transitioncrossing}, in such a way that the particles are \textsc{isochronous} to the detectors. In this case, the term \textsc{IMS} is based on the operation mode of the storage ring, the isochronous. A sketch of this technique is shown in \cref{fig:intro:ims_nutshell}.
+
+\myboxfig{green!90!black}{\textbf{Sketch of the IMS technique}}{
+    \centering
+    \includegraphics[width=\textwidth]{ims.png}
+    \captionof{figure}{Isochronous Mass Spectrometry in a nutshell.}
+    \label{fig:intro:ims_nutshell}
+}
+
+\subsection{Cooling at storage rings}\label{subsec:intro:cooling}
+The main cooling techniques that we can find at storage rings are electron cooling~\cite{ecooling1} (\cref{subsubsec:intro:ecooling}) and stochastic cooling~\cite{stochasticcooling1} (\cref{subsubsec:intro:scooling}). Laser cooling~\cite{laserTSR} could also be utilized for reaching temperatures of a few Kelvin.
+\newpar
+Beam cooling is a vital process in storage rings. It involves reducing the beam temperature, or equivalently decreasing its phase space volume, emittance, and momentum spread. Moreover, we can control the energy of the electrons (via the application of different voltages), and thus the energy of the ions. This is fundamental for determining the transition energy~\cite{transitioncrossing} of the storage ring.
+Due to the application of cooling forces, which involves interactions between different particles such as electrons or photons, beam cooling techniques do not follow Liouville's Theorem.
+\newpar
+According to Liouville's theorem, in systems governed by conservative forces, the area occupied by the beam in the longitudinal phase space is, like an incompressible fluid, conserved.
+For performing precision experiments we need to decrease it. Decreasing emittance involves reducing the mean transverse momentum while maintaining the mean longitudinal momentum, done through dissipative forces, i.e. cooling methods. Therefore, cooling is useful for compensating the heating effects in experiments with internal targets and reducing the momentum spread hence increasing the mass resolving power and precision.
+
+\subsubsection{Electron cooling (in the \textsc{ESR})}\label{subsubsec:intro:ecooling}
+
+Electron cooling is a technique where the ions adopt the velocity and divergence characteristics of the electron beam. It is based on aligning the parallel velocities ($v_{e\parallel}$ and $v_{ion\parallel}$) and the energy relation $E_{e} = \frac{m_{e}}{M_{ion}} \cdot E_{ion}$. For instance, $200$\,keV electrons can cool $400$\,MeV/u ions. With this method, momentum spreads of \,$\delta p/p = 10^{-7}$ can be achieved~\cite{ecoolSteck}, for less than about $10^3$ ions.
+\newpar
+As a consequence of being able to control the energy of the revolving ions through the electron cooler, we can search for the energy at which $\gamma = \gamma_t$. More on this in \cref{sec:chap2:isomode}.
+\subsubsection{Stochastic cooling (in the \textsc{ESR})}\label{subsubsec:intro:scooling}
+Stochastic cooling is a method of ``self-correction" of ion trajectories. It involves measuring the ion beam position at a fixed point using a pick-up probe and amplifying the induced signal. This amplified signal serves as a corrective input at another position via a ``kicker". This method is used at storage rings for fast pre-cooling of hot fragment beams with energies of $400$\,MeV/nucleon. With this technique, relative momentum spreads of $\delta p/p \approx 10^{-3}$ can be achieved~\cite{stochasticESR}. Usually, electron cooling follows stochastic cooling.
+
+\section{Radioactive decays}\label{sec:intro:radioactive_decays}
+\subsection{$\alpha$ decay}\label{subsec:intro:alphad}
+Alpha decay is a type of radioactive decay in which an atomic nucleus emits an alpha particle (consisting of two protons and two neutrons) and transforms into a new nucleus with a mass number reduced by four and an atomic number reduced by two. 
+The alpha particle, \,\isotope{4}{He}, is extremely stable due to its strong binding. This strong binding energy is a key reason for $\alpha$-decay existence. $\alpha$-decay is governed by both strong and electromagnetic forces, resulting in half-lives that span from microseconds to millions of years.
+
+\subsection{$\beta$ decay}\label{subsec:intro:betad}
+$\beta$ decay represents a fundamental process in particle and nuclear physics, involving the transformation of a neutron into a proton or vice versa, mediated by the weak nuclear force. This process is crucial for understanding nuclear synthesis in astrophysical contexts and the behavior of unstable nuclei. It connects two neighboring isobars. $\beta$ decay comprises the following variants:
+
+\begin{itemize}
+    \item \bm{$\beta^{-}:\,\,n \rightarrow p + e^{-} + \overline{\nu}$} \hfill {(\textsc{three-body $\beta^-$ decay})}
+    \begin{itemize}
+        \item A neutron ($n$) in the nucleus transforms into a proton ($p$), emitting an electron ($e^{-}$) and an antineutrino ($\overline{\nu}$)
+        \item The free neutron decay can occur~\cite{freeneutrondecay}, releasing $0.782$\,MeV of energy.
+    \end{itemize}
+    \item \bm{$\beta^{+}:\,\,p \rightarrow n + e^{+} + \nu$} \hfill {(\textsc{three-body $\beta^+$ decay})}
+    \begin{itemize}
+        \item Involves the transformation of a proton into a neutron, emitting a positron ($e^{+}$) and a neutrino ($\nu$).
+        \item Since the mass of the neutron is greater than the proton mass, this decay is only observed within the nucleus (not in ``vacuum'', as the (free) neutron decay).
+    \end{itemize}
+    \item \textbf{EC:}\,\,\bm{$p + e^{-} \rightarrow n + \nu$} \hfill {(\textsc{two-body $\beta^+$ decay})}
+    \begin{itemize}
+        \item A proton captures an inner-shell electron, transforming into a neutron and emitting a neutrino.
+        \item It competes with the (three-body) $\beta^{+}$ decay, and is energetically more favorable due to the high probability of inner-shell electrons being near the nucleus. Additionally, (three-body) $\beta^+$ decay requires an extra $0.511$\,MeV of energy to create the $e^{+}$.
+    \end{itemize}
+\end{itemize}
+
+There are other more exotic forms of $\beta$-decay such as the double-beta decay and the neutrinoless double-beta decay.
+\subsubsection{Double-beta decay}\label{subsubsec:intro:doublebeta}
+The double-beta decay, firstly described by M.~G\"{o}ppert-Mayer~\cite{Goeppert2beta}, occurs when single-beta decay is forbidden or highly suppressed. In this rare process, two neutrons in a nucleus simultaneously decay into two protons, emitting two electrons and, following the logic of single $\beta$-decay, two antineutrinos.
+\newpar
+The hypothetical case where no antineutrinos are emitted is known as \textsc{neutrinoless double-beta decay}. This process, if observed, would have significant implications for our understanding of neutrino properties, including the possibility that neutrinos are their own antiparticles~\cite{neutrinoless2beta}. The nuclear matrix elements (\textsc{NME}) involved in this exotic decay~\cite{Engel_2017} are correlated with the ones of the two-photon decay~\cite{ROMEO}, hence increasing the interest and importance of two-photon \textsc{NME} measurements.
+
+\subsection{Electromagnetic decays}\label{subsec:intro:electromagnetic_decays}
+
+\begin{figure}[hbt]
+    \includegraphics[width=\textwidth]{electro_decays_explicit.png}
+    \caption{Electromagnetic nuclear deexcitations. (a) Gamma decay, (b) internal conversion in a hydrogen-like ion and (c) internal pair creation.}
+\end{figure}
+
+The first order electromagnetic decay pathways: pair creation (\cref{subsubsection:intro:internalpaircreation}), internal-electron conversion (\cref{subsubsection:intro:internalconversion}), and gamma decay (\cref{subsubsection:intro:gammadecay}) play a pivotal role in nuclear physics by providing detailed insights into nuclear structure. 
+
+\subsubsection{$\gamma$ decay}\label{subsubsection:intro:gammadecay}
+
+Photon decay ($\gamma$ decay) is one of the main electromagnetic processes, in which an excited nucleus releases excess energy by emitting a $\gamma$-ray. This emission typically follows $\alpha$ (\cref{subsec:intro:alphad}) or $\beta$-decay (\cref{subsec:intro:betad}), facilitating the transition of the nucleus to a more energetically favorable state through the reconfiguration of nucleons within nuclear shells.
+
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[width=0.75\linewidth]{weiss.png}
+    \caption{Weißkopf estimates of half-lives for various multipolarities ($L$) in magnetic ($M$) and electric ($E$) single-photon decay modes, shown in orange and blue, respectively. These are plotted as a function of the emitted photon energy ($E_\gamma$).}
+    \label{fig:intro:Weiss}
+\end{figure}
+
+The rates of $\gamma$ decay are primarily dictated by electromagnetic interactions. One of the most famous approaches to estimating single-particle transition rates, where nucleon-nucleon interactions are largely neglected, was developed by Weißkopf~\cite{WeisskopfTransitions}. His estimates (represented in \cref{fig:intro:Weiss}) provide a foundational benchmark for comparing experimental transition rates. According to Weißkopf~\cite{WeisskopfTransitions}, the transition rate is proportional to the $2L+1$ power of the transition energy, where $L$ denotes the 
+multipolarity of the decay radiation. Notably, transitions of higher multipolarity exhibit reduced rates as can be seen in \cref{fig:intro:Weiss}.
+
+
+$\gamma$-spectroscopy~\cite{Gilmore2008} has emerged as an indispensable tool in nuclear physics, yielding precise insights into nuclear structure through the determination of spin, parity, and energy levels. The technique's prowess lies in its ability to directly measure the energy from the $\gamma$-ray spectrum, deduce spin via their angular distributions and correlations, and ascertain parity by analyzing the polarization of $\gamma$-rays. 
+$\gamma$-spectrometers typically consist of arrays composed of segmented high-purity germanium (\textsc{HPGe}) detectors, arranged in spherical configurations, often referred to as \textsc{detector balls}, to measure in all directions. These \textsc{HPGe} detectors are renowned for their exceptional resolution in measuring the energy of gamma rays. Currently, \textsc{AGATA}~\cite{AGATA} (Advanced Gamma Tracking Array) is one of the most advanced~\cite{KortenAGATA,EberthAGATA} \textsc{HPGe} balls.
+For a multitude of excited nuclear states, $\gamma$-ray emission constitutes the primary decay pathway to a lower energy state. As a consequence of its intrinsic spin of $1$, for preserving the angular momentum in the transitions, $E0$ single-$\gamma$ decay is not allowed. This point is more addressed in \cref{subsection:intro:e0trans}.
+
+\subsubsection{Internal-electron conversion}\label{subsubsection:intro:internalconversion}
+Internal-electron conversion (\textsc{IC}) is a process whereby an excited nucleus transfers energy to an orbital electron, ejecting it from the atom. The electron is ejected with a certain kinetic energy determined by the binding energies of the electrons in the specific atomic shell they are ejected from. 
+This mechanism competes with $\gamma$ decay, particularly in low-energy transitions and environments with high electron densities. Both transitions are grouped under the name of internal transition~(\textsc{IT}), as they typically occur between internal levels within the nucleus. The ratio of the probability of emitting an electron versus a photon is termed electron conversion factor ($\alpha$). It can be related to the half-lives of each decay by:
+\begin{equation} 
+	\alpha = \frac{T^{\gamma}_{1/2}}{T^{IC}_{1/2}},
+	\label{eq:intro:alphafactor} 
+  \end{equation}
+where $T^{\gamma}_{1/2}$ is the partial half-life of the photon decay and $T^{IC}_{1/2}$ is the partial half-life of the internal-electron conversion (\textsc{IC}).
+Assuming that the neutral state's \textsc{IT} half-life ($T^{IT}_{1/2}$) is measured with high precision and the corresponding $\alpha$ factor value is reliable, we can leverage this information to establish a relationship between them and the pure (partial) $\gamma$-decay half-life:
+\begin{align} 
+	T^{IT}_{1/2} &=\frac{1}{\frac{1}{T^{\gamma}_{1/2}} + \frac{1}{T^{IC}_{1/2}}} = \frac{1}{\frac{1}{T^{\gamma}_{1/2}} + \frac{\alpha}{T^{\gamma}_{1/2}}},
+	\label{eq:intro:TIT} \\
+	T^{\gamma}_{1/2} &= T^{IT}_{1/2} \cdot (1 + \alpha).
+	\label{eq:intro:Tgamma} 
+\end{align}
+\newpar
+Equivalently, considering that the majority of the $\alpha$ factors documented are derived from theoretical models, such as those found in \textsc{BrIcc}~\cite{KIBEDI2008202}, it follows that by measuring $T^{\gamma}_{1/2}$, we can indirectly determine $\alpha$ through the equation:
+\begin{equation}
+    \alpha = \frac{T^{\gamma}_{1/2}}{T^{IT}_{1/2}} - 1.
+    \label{eq:intro:alpha_pureIT}
+\end{equation}
+For additional details on the methodology for experimentally estimating $\alpha$ factors, please refer to \cref{subsec:chap3:purephoton}.
+
+\subsubsection{Internal pair creation}\label{subsubsection:intro:internalpaircreation}
+In internal pair creation, an excited nucleus decays by converting its excess energy into an electron-positron pair. This process becomes energetically feasible for transitions with energies exceeding twice the rest mass of an electron ($1.022$\,MeV).
+
+\subsection{$E0$ transitions}\label{subsection:intro:e0trans}
+$E0$ transitions are electric monopole transitions where there is no change in angular momentum ($\Delta J = 0$) and no emission of angular momentum by the nucleus, therefore single $\gamma$ decay is prohibited. These transitions are often observed through internal conversion processes, providing unique insights into nuclear shape coexistence and isomeric states.
+
+\section{Isomers}\label{sec:intro:isomers}
+
+By definition, an isomer or isomeric state is a metastable excited state of a nucleus. 
+There are differing opinions regarding the exact definition of metastable; some consider a state to be metastable if its half-life is at least in the order of microseconds, while others define it based on having a longer half-life compared to other excited states. They usually decay in stable nuclides via \textsc{IT} to the ground state (see \cref{subsubsection:intro:internalconversion}).  
+\newpar
+In the context of this thesis, when referring to \textsc{excited states}, we specifically mean states of the nucleus where protons and/or neutrons are excited to higher internal levels. Nuclear excitations are significantly more energetic compared to atomic excitations, typically ranging from a few electronvolts to several kiloelectronvolts for highly bound states, whereas nuclear excitations can reach several megaelectronvolts.
+\newpar
+They can be utilized for energy storage \cite{WalkerCarroll} and subsequent (stimulated) release \cite{CARROLLrelease} (high-energy gamma sources), in medicine dominated primarily by \,\isomer{99}{Tc}\,\cite{99mTcMedicine}. Additionally, they are the future for nuclear clocks, such as \,\isomer{229}{Th}\,\cite{Seiferle2019,Kraemer2023} and \,\isomer{45}{Sc}\,\cite{Shvydko2023}.
+\newpar
+\mybox{blue!70!black}{\textbf{What has greater mass: an isomer or its corresponding ground state?}}{
+An isomer has a greater mass because it represents a less tightly bound system than its corresponding ground state since the nucleons are in excited levels. In other words, the binding energy per nucleon is reduced compared to the one of the ground state.
+\newpar
+Another way to look at it is by the energy equivalence theorem, the excitation energy adds up to the mass of the nucleus in the ground state.
+Consequently, an isomer will \textbf{always} exhibit a longer revolution time (lower revolution frequency) than its ground state in storage rings. Thus, in Schottky frequency spectrograms, the isomer will consistently appear to the left of the ground state.
+}
+Metastable states are often described as energy traps\,\cite{Walker1999}. In the same way that the ground state usually\footnote{Except for \,\isomer{180}{Ta} which is stable when $^{180\mathrm{g}}\mathrm{Ta}$ is not.} represents the most stable configuration of the nucleus, typically corresponding to the state of minimal energy, there are other energy minima that the nucleus, as a whole, can occupy. The stability of these states varies depending on the depth of the energy trap; deeper traps correspond to more stable states.
+\newpar
+There are primarily three classes of traps (isomers): 
+\begin{itemize}
+    \item {\bf Spin traps:} those due to significant spin differences between states, leading to spin isomers.
+    \item {\bf Shape traps:} those due to disparities in nuclear deformation within the nucleus, leading to shape coexistence and shape isomers.
+    \item {\bf K traps:} those due to differences in the projection of spin along the axis of symmetry in a deformed nucleus, leading to K isomers.
+\end{itemize}
+
+There are various types of isomers\,\cite{Walker2020,NuclearIsomers}, however our focus will be on shape isomers, as they are usually present in low-lying $0^+$ excited states\,\cite{NuclearIsomers} and this is the target states of our new developed methodology. To comprehend shape isomers, it is essential to understand the shape of the nucleus and its possible deformations.
+
+\subsection{Deformation}\label{subsec:intro:deformation}
+
+Far from closed shells, where the nuclei usually have spherical shapes (specially even-even nuclei), nuclei can exhibit stable deformations. In this subsection, I provide a simple review of the formalism used to describe nuclear deformations.
+\newpar
+It is common to parametrize the surface of a deformed nucleus by expressing its radius $R$ in terms of spherical harmonics~\cite{RingSchuck1980}:
+
+\begin{equation}
+    R\left(\theta, \phi; t\right) = R_0 \left(1+\sum_{\lambda=0}^{\infty}\sum_{\mu=-\lambda}^{\lambda}\alpha_{\lambda\mu}\left(t\right)Y_\lambda^\mu\left(\theta, \phi\right)\right),
+\end{equation}
+
+where $R_0$ denotes the radius of a spherical nucleus with equivalent volume. In the context of low-energy excitations, the summation over multipole orders $\lambda$ is typically restricted to $\lambda \geq 2$. This is because the $\lambda = 0$ term, representing the breathing mode, involves changes in the nuclear radius (or volume), which are negligible due to the high incompressibility of nuclear matter. Additionally, $\lambda = 1$ corresponds to shifts in the center of mass of the nucleus, therefore they have no effect on the shape. Also, higher order excitations are only relevant in heavy nuclei ($A>120$). \cref{fig:intro:deformationpoles} shows schematically how a spherical nucleus (orange) is deformed under the different excitations~(blue). All the deformation figures have been realized with the \textsc{Python} library \textsc{nudeform}~\cite{nudeform}. 
+
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[width=\textwidth]{radial_plot_3l2.png}
+    \caption{Deformation poles for three different $\beta$ strengths, in comparison with a spherical shape in orange; $\lambda=1$ (dipole excitations), $\lambda=2$ (quadrupole excitations), $\lambda=3$ (octupole excitations), and $\lambda=4$ (hexadecupole excitations).}
+    \label{fig:intro:deformationpoles}
+\end{figure}
+
+The most prevalent deformation in nuclei is quadrupolar ($\lambda= 2$), which creates an ellipsoid-like shape (rugby balls, berliners and everything in between as in \cref{fig:intro:shapeclock}). For such deformations, there are five deformation coefficients, $\alpha_{\lambda\mu}$. Among these, three coefficients represent the orientation of the body-fixed system in relation to the space-fixed system, corresponding to the three Euler angles. 
+\newpar
+In the body-fixed framework, the complexity of the five coefficients $\alpha_{\lambda\mu}$ reduces to just two real independent variables: $a_{20}$ and $a_{22} = a_{2-2}$, with $a_{21} = a_{2-1} = 0$. These two variables, along with the three Euler angles, comprehensively describe the system. Usually, the parameters $a_{20}$ and $a_{22}$ are rewritten in terms of the Hill-Wheeler parameters $\beta$ and $\gamma$, which offer a more intuitive understanding of the deformation characteristics.
+\begin{align}
+    a_{20} &= \beta \cos\left(\gamma\right)\\
+    a_{22} &= \frac{1}{\sqrt{2}}\beta \sin\left(\gamma\right)
+\end{align}
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[width=0.65\linewidth]{shape_clock.png}
+    \caption{Representation of the shape of nuclei with $72$ nucleons for a non-zero quadrupolar deformation strength ($\beta > 0$) as a function of the $\gamma$ angle. The diagram is divided into $6$ equal parts, following Lund's conventions.}
+    \label{fig:intro:shapeclock}
+\end{figure}
+
+The parameter $\beta$ ($\beta \geq 0$) quantifies the degree of ellipsoidal deformation, whereas $\gamma$ indicates its orientation. The range of $\gamma$ extends from $0^\circ$ to $360^\circ$. However, according to the Lund convention, it is sufficient to consider the range from $0^\circ$ to $60^\circ$ for representing different nuclear shapes, as the remaining sectors (each of the six segments) simply replicate these shapes along different axes.
+\newpar
+At $\gamma=0^\circ$, the nucleus presents a prolate shape (rugby-like shape) due to symmetry between two of the three axes. Conversely, at $\gamma=60^\circ$, the shape is oblate (berliner-like shape) with similar symmetry properties. 
+For intermediate values of $\gamma$, the nucleus exhibits triaxial shapes, where no symmetry exists between any of the axes. All of this can be clearly seen in the different projections of \cref{fig:intro:lund}.
+\begin{figure}[hbt]
+    \centering
+    \includegraphics[width=0.85\linewidth]{radial_plots_Lund.png}
+    \captionof{figure}{Quadrupolar deformation shapes and cross-sections along the principal axes, illustrating symmetries for a nucleus with mass number $A=72$. For comparison, the illustration includes a spherical nucleus with $72$ nucleons outlined in orange, alongside the contour of its quadrupolarly deformed shape in blue. The nuclear radius is expressed in Fermi units.}
+    \label{fig:intro:lund}
+\end{figure}
+
+The concept of a potential energy surface (\textsc{PES}) is crucial in understanding nuclear shape isomers. For a given nucleus, the \textsc{PES} often exhibits multiple minima at deformations distinct from the ground state. The ground state typically aligns with the lowest and deepest of these minima, while other minima are generally shallower. However, a sufficiently deep minimum can trap the nucleus, leading to the formation of a shape isomer. This phenomenon is observed in many $0^+$ isomers. For instance, the self-conjugate nucleus \,\isotope{72}{Kr} has a well-documented $0^+$ shape isomer~\cite{72krshapeisomer} with a half-life of $26$ ns, existing due to a hindered $E0$ transition.
+\newpar
+Each nucleus possesses a unique \textsc{PES} map, indicating varying nuclear deformations based on the location of the minima. Accurately reproducing these minima, or energy traps, requires complex theoretical computations. These computations involve incorporating various nuclear interactions and are achieved through advanced simulation techniques. Notably, methodologies such as Hartree-Fock-Bogoliubov~\cite{hfbt} (\textsc{HFB}) and the Symmetry-Conserving Configuration-Mixing method~\cite{sccm} (\textsc{SCCM}) are employed. These methods provide reliable simulations by considering collective wave functions and integrating multiple nuclear interactions. All of these leads to the phenomena of shape coexistence.
+\subsection{Shape coexistence}\label{subsec:intro:shape_coexistence}
+Shape coexistence~\cite{shapeCoex} in nuclei refers to the occurrence of low-lying nuclear states exhibiting distinctly different intrinsic shapes, either among themselves or/and compared to the ground state.
+This phenomenon, widespread across the nuclear chart and believed to be present in nearly all nuclei, has been the focus of extensive experimental~\cite{GARRETT2022} and theoretical research~\cite{PhysRevC.107.024308} aimed at achieving a unified understanding of nuclear shape coexistence.
+\newpar
+Spectroscopic evidence of nuclear deformation, and consequently of shape coexistence, can be obtained from measurements of $E2$ matrix elements via multistep Coulomb excitation~(\textsc{Coulex}) \cite{Görgen_2016} experiments, and the reduced quadrupole transition probabilities ($B(E2)$) obtained through lifetime measurements. The strengths of $E0$ transitions~\cite{Kibedi-2022}, in particular, are crucial indicators of shape coexistence. They are reflective of the degree of mixing between intrinsic configurations of different deformations. $E0$ transitions do not change the angular momentum of the nucleus but signify changes its nuclear shape or volume. These transitions are especially sensitive to the presence of different shapes at similar energy levels and provide critical insights into the interplay of nuclear configurations, thus offering a more focused perspective on the phenomenon of shape coexistence. 
+
+\subsection{Role in nucleosynthesis}\label{subsec:intro:role_in_nucleosynthesis}
+The process of forming atomic nuclei through various nuclear reactions is termed nucleosynthesis~\cite{rolfs1988cauldrons} (\textsc{NS}). This phenomenon begins with Big Bang \textsc{NS}, when protons, He and tiny amounts of Li (and possibly Be) were created. Subsequently, through various processes, this leads to the creation of the heaviest elements.
+These processes predominantly occur in stars, e.g. in supernovae~\cite{WoosleyHoward1978}, and other high-energy astrophysical environments, such as neutron star mergers~\cite{Freiburghaus_1999}. The particular conditions of these environments, such as high neutron densities, drive phenomena like neutron capture (slow neutron capture and rapid neutron capture, s~\cite{RevModPhys.83.157} and r process~\cite{COWAN1991267} respectively). 
+The majority of the elements are produced via neutron induced reactions. Additionally, there are further processes, like the rp-process~\cite{SCHATZ1998167}, contributing to the element abundances.
+In these extreme environments, atoms are often found in ionized states, as plasmas, and existing in excited states due to the high temperature and pressure conditions. This results in fully stripped excited states.
+\newpar
+It has been observed that low-lying \ezerotrans transitions to the ground state can be significantly extended due to the prohibited electron conversion. This can lead to the creation, and modification, of branching points in nucleosynthesis pathways, which previously were not considered or underestimated.
+Isomers that play roles in nucleosynthesis are known as \textsc{astromers}\,\cite{Misch_2021_1,Misch_2021_2}. Their significance has led to their inclusion in nucleosynthesis simulation codes\,\cite{ReifarthNucleosynthesis}. Examples of astromers include \,\isomer{24}{Al}, \,\isomer{26}{Al}, \,\isomer{93}{Mo}\,\cite{nucleosynthesis93mMo}, \,\isomer{99}{Tc}, \,\isomer{148}{Pm}, \,\isomer{176}{Lu}, and \,\isomer{180}{Ta}. These isotopes have been demonstrated to significantly influence various nucleosynthesis processes\,\cite{gerken2021thesis,IsomersCosmosProceeding}.
+\begin{center}
+    \vspace*{1cm}
+    \pgfornament[width=0.8cm, color=darkred]{5}
+    %\pgfornament[width=5cm, color=darkred]{71}
+    \vspace*{\fill}
+  \end{center}

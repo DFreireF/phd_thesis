@@ -1,0 +1,103 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{410Schottky}{article}{}
+      \name{author}{9}{}{%
+        {{hash=ac31b141e8903f67fc72613644bab81a}{%
+           family={Sanjari},
+           familyi={S\bibinitperiod},
+           given={M.\bibnamedelimi S.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=a0c22ba809ab6f6fe94350f0ea2043da}{%
+           family={Dmytriiev},
+           familyi={D\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=504e38ab068576e22b9d3d3de30b1520}{%
+           family={Litvinov},
+           familyi={L\bibinitperiod},
+           given={Yu.\bibnamedelimi A.},
+           giveni={Y\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=d865d1c588f965d7109775628bb6a40f}{%
+           family={Gumenyuk},
+           familyi={G\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod}}}%
+        {{hash=bb2f2f1dfc74c4e8277527405c82b374}{%
+           family={Hess},
+           familyi={H\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=7fde08cd0c86304c49b5580e68df47e0}{%
+           family={Joseph},
+           familyi={J\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2b1f98fac4a2c004ef92df7da91e8393}{%
+           family={Litvinov},
+           familyi={L\bibinitperiod},
+           given={S.\bibnamedelimi A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=d76574b0c5e4ab99568c7c35926e75c2}{%
+           family={Steck},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b9f1f93a186bb47158ed724d8d840e75}{%
+           family={Stöhlker},
+           familyi={S\bibinitperiod},
+           given={Th.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{d96a4d3cc9be6b36c4b58d7135772882}
+      \strng{fullhash}{5a1faa00b4ca0ce77d6010a515f8cbc7}
+      \strng{bibnamehash}{d96a4d3cc9be6b36c4b58d7135772882}
+      \strng{authorbibnamehash}{d96a4d3cc9be6b36c4b58d7135772882}
+      \strng{authornamehash}{d96a4d3cc9be6b36c4b58d7135772882}
+      \strng{authorfullhash}{5a1faa00b4ca0ce77d6010a515f8cbc7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Review of Scientific Instruments}
+      \field{number}{8}
+      \field{title}{A 410 MHz resonant cavity pickup for heavy ion storage rings}
+      \field{volume}{91}
+      \field{year}{2020}
+      \field{pages}{083303}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1063/5.0009094
+      \endverb
+      \verb{eprint}
+      \verb https://doi.org/10.1063/5.0009094
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1063/5.0009094
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1063/5.0009094
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

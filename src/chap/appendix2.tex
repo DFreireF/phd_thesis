@@ -1,0 +1,68 @@
+%!TEX root = ../thesis.tex
+
+\chapter{Harmonic Overlap}\label{apdx:harmonicoverlap}
+
+To find a mathematical expression relating the frequency center $f_c$, the frequency span $f_s$, the harmonic number $h$, and the number of overlaps for a given harmonic $n$, we can analyze and simulate the scenario geometrically with rectangles.
+
+Let's evaluate the different possibilities:
+\begin{itemize}
+    \item if $i<h$:
+        \begin{equation}
+            i > \frac{h \cdot \left(f_c - \frac{f_s}{2}\right)}{f_c + \frac{f_s}{2}},
+        \end{equation}
+    \item if $i>h$:
+        \begin{equation}
+            i < \frac{h \cdot \left(f_c + \frac{f_s}{2}\right)}{f_c - \frac{f_s}{2}}.
+        \end{equation}
+\end{itemize}
+
+Therefore, the total number of overlaps for a given harmonic $h$ is the sum of the count of integers $i$ that satisfy these conditions (excluding $i = h$).
+
+Thus, we can make a Python script for this purpose:
+\begin{mintedbox}{python}
+def count_overlaps(f_c, f_s, h):
+    lower_limit = h * (f_c - f_s / 2) / (f_c + f_s / 2)
+    upper_limit = h * (f_c + f_s / 2) / (f_c - f_s / 2)
+
+    lower_overlap_count = sum(1 for i in range(1, h) if i > lower_limit)
+    upper_overlap_count = sum(1 for i in range(h + 1, int(upper_limit) + 1))
+
+    return lower_overlap_count + upper_overlap_count
+\end{mintedbox}
+
+As a visual example with experimental data, let's consider:
+\begin{itemize}
+    \item $f_c = 1.929406$\,MHz,
+    \item $f_s = 73406$\,Hz.
+\end{itemize}
+Experimentally, $f_c$ is the \textsc{eigenfrequency} center of the distribution of identified peaks (within the same harmonic) and $f_s$ the span of it. For this set of values, we can run our Python script to find out how many overlaps we will expect in the range of frequencies measured by our detectors, let's say the $125^\mathrm{th}$ and $210^\mathrm{th}$, in addition to the $5^\mathrm{th}$ for showing that usually at lower harmonics we will not find any superposition:
+
+\begin{mintedbox}{python}
+N_overlaps = [count_overlaps(f_c, f_s, h = h) for h in [5, 125, 210]]
+print(f'N_overlaps = {N_overlaps}')
+# Output: N_overlaps = [0, 8, 15]
+\end{mintedbox}
+
+Visually we can extend this relation to any harmonic, supposing we have an infinite number, in Fig.~\ref{fig:chap2:overlaps} can be seen the evolution of the number of overlaps for the different harmonics.
+
+Finally, in order to have visually a better feeling of what is happening, I have recreated the case by assuming rectangles of center $f_c$ and span $f_s$ for different harmonic ranges, see Fig.~\ref{fig:app2:harmonics}. There, every time there is a superposition between 2 harmonics, the area under the overlap is fill with a light green color. If there is more than one superposition the are gets darker and darker. Therefore, when working at high harmonics we have to be extra careful in the identification. Even if we are, we may be unlucky at getting contaminated the only peak clearly visible in the data with the contributions from other harmonics that cannot be properly identified. In such a case, the only solution would be to remove the contaminants by the use of scrappers during the experimental beam time. Although, the contaminating signals can also be due to the noise. This signals usually repeat at a high frequency, meaning that it would be present at other frequency ranges and therefore, you can deconvolve the signal.
+
+\begin{figure}[p] % 'p' places the figure on a page containing only floats
+    \centering
+    \subfloat[Harmonic overlap between the first and ninth harmonic.]{
+        \includegraphics[width=0.47\textwidth]{../img/appendix2/harmonic1-9.png}
+        \label{fig:app2:h1-9}
+    }
+    \hspace{0.2cm}
+    \subfloat[Harmonic overlap between the \(120^\mathrm{th}\) and \(130^\mathrm{th}\) harmonic.]{
+        \includegraphics[width=0.47\textwidth]{../img/appendix2/harmonic120-130.png}
+        \label{fig:app2:h120-130}
+    }
+    \vspace{0.1cm} % Space between the figures
+    \subfloat[Harmonic overlap between the \(205^\mathrm{th}\) and \(215^\mathrm{th}\) harmonic.]{
+        \includegraphics[width=0.98\textwidth]{../img/appendix2/harmonic205-215.png}
+        \label{fig:app2:h205-215}
+    }
+    \caption{Harmonic overlap for the different harmonics settings assuming there are only harmonics between them.}
+    \label{fig:app2:harmonics}
+\end{figure}
