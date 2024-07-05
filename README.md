@@ -18,5 +18,5 @@ This thesis introduces a pioneering approach by combining Schottky and Isochrono
 
 ### Progress
 <div class="center">
-  <img src="https://github.com/DFreireF/phd_thesis/raw/recovery/.github/progress.png?raw=true" width="100%"" alt="Progress">
+  <img src="https://github.com/DFreireF/phd_thesis/raw/master/progress.png?raw=true" width="100%"" alt="Progress">
 </div>
