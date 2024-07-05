@@ -30,3 +30,6 @@ This thesis introduces a pioneering approach by combining Schottky and Isochrono
 <div class="center">
   <img src="https://github.com/DFreireF/phd_thesis/raw/master/progress.png?raw=true" width="100%"" alt="Progress">
 </div>
+
+
+Inspired on the structure of [@pertoldi](https://github.com/gipert/phd-thesis) and uses a modification of the titlepage template of [@pjb7687](https://github.com/pjb7687/uni-heidelberg-phd-thesis-latex-template).
