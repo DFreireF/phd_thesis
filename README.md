@@ -11,6 +11,16 @@
     - apl. Prof. Dr. Peter Bachert
 + Defense date: June 21st, 2024
 
+## Citing
+```bibtex
+@phdthesis{Freire2024,
+    author      = "Freire-Fernández, D.",
+    title       = "{First nuclear two-photon decay measurements at storage rings}",
+    institution = "Ruprecht-Karls-Universität, Heidelberg",
+    year        = "2024",
+    DOI         = "10.11588/heidok.00035046",
+}
+```
 
 ### Abstract
 
